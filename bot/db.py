@@ -1,3 +1,5 @@
+from multiprocessing import connection
+import string
 import mysql.connector 
 
 class BotDB:
@@ -48,4 +50,14 @@ class BotDB:
             print("Something went wrong: {}".format(err))
             return False
 
-
+    def get_message(self, message_id: string):
+        try:
+            connection = mysql.connector.connect(user='root', passwd="", port="3306", host="localhost", database=self.db_file)
+            cursor = connection.cursor()
+            cursor.execute(f"SELECT * FROM messages WHERE message_id = '{message_id}'")
+            result = cursor.fetchone()
+            connection.close()
+            return result[1]
+        except mysql.connector.Error as err:
+            print("Something went wrong: {}".format(err))
+            return "a"
