@@ -1,1 +1,5 @@
-BOT_TOKEN="5152495704:AAHloWQS9vd9d_ibbQfMIbE6RqX65rb4ScE"
+from environs import Env
+
+env = Env()
+
+BOT_TOKEN= env.str("BOT_TOKEN")
