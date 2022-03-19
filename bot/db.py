@@ -60,4 +60,4 @@ class BotDB:
             return result[1]
         except mysql.connector.Error as err:
             print("Something went wrong: {}".format(err))
-            return "a"
+            return None
