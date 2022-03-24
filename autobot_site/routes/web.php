@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth');
 });
 
 Route::apiResource('telegram_user', TelegramUserController::class);
