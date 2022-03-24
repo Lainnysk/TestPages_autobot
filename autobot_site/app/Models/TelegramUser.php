@@ -37,6 +37,11 @@ class TelegramUser extends Model
         ]);
     }
 
+    public static function getTelegramUserById($id): TelegramUser
+    {
+        return TelegramUser::query()->where('id', $id)->firstOrNew();
+    }
+
     public function setNameIfNotEmpty($name)
     {
         if($name != '')

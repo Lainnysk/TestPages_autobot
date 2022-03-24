@@ -12,6 +12,7 @@
 <body>
     <table id="grid"></table>
     <script type="text/javascript">
+    var grid;
         function Update(e) {
             $.ajaxSetup({
                 headers : {
@@ -20,24 +21,25 @@
             });
             if (confirm('Are you sure?')) {
                 var record = {
-                    id: $('#id').val(),
-                    name: $('#name').val(),
-                    phone_number: $('#phone_number').val(),
-                    lot_number: $('#lot_number').val(),
-                    telegram_id: $('#telegram_id').val(),
-                    approved: $('#approved').val()
+                    id: e.data.record.id,
+                    name: e.data.record.name,
+                    phone_number: e.data.record.phone_number,
+                    lot_number: e.data.record.lot_number,
+                    telegram_id: e.data.record.telegram_id,
+                    approved: 2
                 };
-                $.ajax({ url: '/telegram_user/update', success: { data: { records: record} }, method: 'POST' })
-                    .done(function () {
-                        grid.reload();
-                    })
-                    .fail(function () {
-                        alert('Failed to update.');
-                    });
+                $.ajax({ url: '/telegram_user/update', data: record, method: 'POST' })  
+                .done(function () {
+                    alert('Nice.');
+                    grid.reload();
+                })
+                .fail(function () {
+                    alert('Failed to save.');
+                });
             }
         }
         $(document).ready(function () {
-            var grid = $('#grid').grid({
+            grid = $('#grid').grid({
                 dataSource: '/telegram_user/',
                 columns: [
                     { field: 'id', title: 'id', hidden: true},

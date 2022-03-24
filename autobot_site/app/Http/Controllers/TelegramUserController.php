@@ -56,13 +56,14 @@ class TelegramUserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\TelegramUserRequestUpdate  $request
      * @param  \App\Models\TelegramUser  $telegramUser
      * @return \Illuminate\Http\Response
      */
     public function update(TelegramUserRequestUpdate $request, TelegramUser $telegramUser)
     {
-        //return response()->json(['message' => 'success', 'records' => $request], 200);
+        $telegramUser = TelegramUser::getTelegramUserById($request->getId());
+
         $telegramUser->setNameIfNotEmpty($request->getName());
         $telegramUser->setPhoneNumberIfNotEmpty($request->getPhoneNumber());
         $telegramUser->setLotNumberIfNotEmpty($request->getLotNumber());

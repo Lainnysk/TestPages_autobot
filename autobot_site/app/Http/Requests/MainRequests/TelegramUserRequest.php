@@ -40,4 +40,9 @@ class TelegramUserRequest extends FormRequest
     {
         return $this->input('approved');
     }
+
+    public function getId()
+    {
+        return $this->input('id');
+    }
 }
