@@ -17,7 +17,7 @@ class TelegramUserController extends Controller
      */
     public function index()
     {
-        $paginate = TelegramUser::query()->paginate();
+        $paginate = TelegramUser::query()->paginate(5);
 
         return response()->json(['message' => 'success', 'records' => $paginate->items(), 'total' => $paginate->total()], 200);
     }

@@ -20,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::apiResource('telegram_user', TelegramUserController::class);
+
+Route::post('telegram_user/update', [TelegramUserController::class, 'update']);
