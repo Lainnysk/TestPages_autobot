@@ -62,6 +62,7 @@ class TelegramUserController extends Controller
      */
     public function update(TelegramUserRequestUpdate $request, TelegramUser $telegramUser)
     {
+        //return response()->json(['message' => 'success', 'records' => $request], 200);
         $telegramUser->setNameIfNotEmpty($request->getName());
         $telegramUser->setPhoneNumberIfNotEmpty($request->getPhoneNumber());
         $telegramUser->setLotNumberIfNotEmpty($request->getLotNumber());
