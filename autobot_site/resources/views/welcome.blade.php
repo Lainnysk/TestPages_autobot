@@ -15,11 +15,11 @@
             var grid = $('#grid').grid({
                 dataSource: '/telegram_user/',
                 columns: [
-                    { field: 'name'},
-                    { field: 'phone_number', sortable: true },
-                    { field: 'lot_number', title: 'Place Of Birth' },
-                    { field: 'telegram_id', title: 'Date Of Birth' },
-                    { field: 'approved', title: 'Date Of Birth' }
+                    { field: 'name', title: 'ФИО', sortable: true},
+                    { field: 'phone_number', title: 'Номер телеофна'},
+                    { field: 'lot_number', title: 'Номер участка'},
+                    { field: 'telegram_id', title: 'ID Телеграма'},
+                    { field: 'approved', title: 'Действия'}
                 ],
                 pager: { limit: 5 }
             });

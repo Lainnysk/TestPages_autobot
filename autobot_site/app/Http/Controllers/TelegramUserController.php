@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MainRequests\TelegramUserRequest;
+use App\Http\Requests\TelegramUserRequestCreate;
+use App\Http\Requests\TelegramUserRequestUpdate;
 use App\Models\TelegramUser;
 use Illuminate\Http\Request;
 
@@ -25,9 +28,18 @@ class TelegramUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TelegramUserRequestCreate $request)
     {
-        //
+        $telegramUser = TelegramUser::make(
+            $request->getName(),
+            $request->getPhoneNumber(),
+            $request->getLotNumber(),
+            $request->getTelegramId(),
+            $request->getApproved()
+        );
+        $telegramUser->save();
+        
+        return response()->json(['message' => 'success', 'records' => $telegramUser], 200);
     }
 
     /**
@@ -38,7 +50,7 @@ class TelegramUserController extends Controller
      */
     public function show(TelegramUser $telegramUser)
     {
-        //
+        return response()->json(['message' => 'success', 'records' => $telegramUser], 200);
     }
 
     /**
@@ -48,9 +60,17 @@ class TelegramUserController extends Controller
      * @param  \App\Models\TelegramUser  $telegramUser
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TelegramUser $telegramUser)
+    public function update(TelegramUserRequestUpdate $request, TelegramUser $telegramUser)
     {
-        //
+        $telegramUser->setNameIfNotEmpty($request->getName());
+        $telegramUser->setPhoneNumberIfNotEmpty($request->getPhoneNumber());
+        $telegramUser->setLotNumberIfNotEmpty($request->getLotNumber());
+        $telegramUser->setTelegramIdIfNotEmpty($request->getTelegramId());
+        $telegramUser->setApprovedIfNotEmpty($request->getApproved());
+
+        $telegramUser->save();
+        
+        return response()->json(['message' => 'success', 'records' => $telegramUser], 200);
     }
 
     /**
@@ -61,6 +81,7 @@ class TelegramUserController extends Controller
      */
     public function destroy(TelegramUser $telegramUser)
     {
-        //
+        $result = $telegramUser->delete();
+        return response()->json(['message' => $result ? 'success' : 'error'], $result ? 200 : 500);
     }
 }

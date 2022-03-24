@@ -26,7 +26,8 @@ class TelegramUser extends Model
         $lot_number,
         $telegram_id,
         $approved
-    ){
+    )
+    {
         return TelegramUser::query()->make([
             'name' => $name,
             'phone_number' => $phone_number,
@@ -36,33 +37,73 @@ class TelegramUser extends Model
         ]);
     }
 
-    public function setNameIfNotEmpty($name){
-        if($name != ''){
+    public function setNameIfNotEmpty($name)
+    {
+        if($name != '')
+        {
             $this->attributes['name'] = $name;
         }
     }
 
-    public function setPhoneNumberIfNotEmpty($phone_number){
-        if($phone_number != ''){
+    public function setPhoneNumberIfNotEmpty($phone_number)
+    {
+        if($phone_number != '')
+        {
             $this->attributes['phone_number'] = $phone_number;
         }
     }
 
-    public function setLotNumber($lot_number){
-        if($lot_number != ''){
+    public function setLotNumberIfNotEmpty($lot_number)
+    {
+        if($lot_number != '')
+        {
             $this->attributes['lot_number'] = $lot_number;
         }
     }
 
-    public function setTelegramId($telegram_id){
-        if($telegram_id != ''){
+    public function setTelegramIdIfNotEmpty($telegram_id)
+    {
+        if($telegram_id != '')
+        {
             $this->attributes['telegram_id'] = $telegram_id;
         }
     }
 
-    public function setApproved($approved){
-        if($approved != ''){
+    public function setApprovedIfNotEmpty($approved)
+    {
+        if($approved != '')
+        {
             $this->attributes['approved'] = $approved;
         }
+    }
+
+    public function getName()
+    {
+        return $this->attributes['name'];
+    }
+
+    public function getPhoneNumber()
+    {
+        return $this->attributes['phone_number'];
+    }
+
+    public function getLotNumber()
+    {
+        return $this->attributes['lot_number'];
+    }
+
+    public function getTelegramId()
+    {
+        return $this->attributes['telegram_id'];
+    }
+
+    public function getApproved()
+    {
+        return $this->attributes['approved'];
+    }
+
+    public function getId()
+    {
+        return $this->attributes['id'];
     }
 }
