@@ -8,25 +8,10 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
--- Schema autobot_laravel
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `autobot_laravel` ;
-
--- -----------------------------------------------------
--- Schema autobot_laravel
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `autobot_laravel` DEFAULT CHARACTER SET utf8mb4 ;
-USE `autobot_laravel` ;
-
--- -----------------------------------------------------
 -- Table `autobot_laravel`.`failed_jobs`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `autobot_laravel`.`failed_jobs` ;
 
-CREATE TABLE IF NOT EXISTS `autobot_laravel`.`failed_jobs` (
+CREATE TABLE `failed_jobs` (
   `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `uuid` VARCHAR(255) NOT NULL,
   `connection` TEXT NOT NULL,
@@ -44,9 +29,8 @@ COLLATE = utf8mb4_unicode_ci;
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`messages`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `autobot_laravel`.`messages` ;
 
-CREATE TABLE IF NOT EXISTS `autobot_laravel`.`messages` (
+CREATE TABLE `messages` (
   `message_id` VARCHAR(255) NOT NULL,
   `message_text` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`message_id`))
@@ -58,9 +42,8 @@ COLLATE = utf8mb4_unicode_ci;
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`migrations`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `autobot_laravel`.`migrations` ;
 
-CREATE TABLE IF NOT EXISTS `autobot_laravel`.`migrations` (
+CREATE TABLE `migrations` (
   `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `migration` VARCHAR(255) NOT NULL,
   `batch` INT(11) NOT NULL,
@@ -74,9 +57,8 @@ COLLATE = utf8mb4_unicode_ci;
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`password_resets`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `autobot_laravel`.`password_resets` ;
 
-CREATE TABLE IF NOT EXISTS `autobot_laravel`.`password_resets` (
+CREATE TABLE  `password_resets` (
   `email` VARCHAR(255) NOT NULL,
   `token` VARCHAR(255) NOT NULL,
   `created_at` TIMESTAMP NULL DEFAULT NULL,
@@ -89,9 +71,8 @@ COLLATE = utf8mb4_unicode_ci;
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`personal_access_tokens`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `autobot_laravel`.`personal_access_tokens` ;
 
-CREATE TABLE IF NOT EXISTS `autobot_laravel`.`personal_access_tokens` (
+CREATE TABLE  `personal_access_tokens` (
   `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `tokenable_type` VARCHAR(255) NOT NULL,
   `tokenable_id` BIGINT(20) UNSIGNED NOT NULL,
@@ -112,9 +93,8 @@ COLLATE = utf8mb4_unicode_ci;
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`telegram_users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `autobot_laravel`.`telegram_users` ;
 
-CREATE TABLE IF NOT EXISTS `autobot_laravel`.`telegram_users` (
+CREATE TABLE `telegram_users` (
   `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NULL DEFAULT NULL,
   `phone_number` VARCHAR(255) NULL DEFAULT NULL,
@@ -132,9 +112,8 @@ COLLATE = utf8mb4_unicode_ci;
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`reg_cars`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `autobot_laravel`.`reg_cars` ;
 
-CREATE TABLE IF NOT EXISTS `autobot_laravel`.`reg_cars` (
+CREATE TABLE `reg_cars` (
   `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `num_car` VARCHAR(255) NOT NULL,
   `add_info` VARCHAR(255) NOT NULL,
@@ -160,9 +139,8 @@ COLLATE = utf8mb4_unicode_ci;
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`roles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `autobot_laravel`.`roles` ;
 
-CREATE TABLE IF NOT EXISTS `autobot_laravel`.`roles` (
+CREATE TABLE `roles` (
   `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
@@ -175,9 +153,9 @@ COLLATE = utf8mb4_unicode_ci;
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`users`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `autobot_laravel`.`users` ;
 
-CREATE TABLE IF NOT EXISTS `autobot_laravel`.`users` (
+
+CREATE TABLE `users` (
   `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
