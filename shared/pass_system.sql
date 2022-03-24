@@ -129,7 +129,7 @@ CREATE TABLE `reg_cars` (
   INDEX `reg_cars_telegram_user_id_foreign` (`telegram_user_id` ASC) VISIBLE,
   CONSTRAINT `reg_cars_telegram_user_id_foreign`
     FOREIGN KEY (`telegram_user_id`)
-    REFERENCES `autobot_laravel`.`telegram_users` (`id`))
+    REFERENCES `telegram_users` (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 44
 DEFAULT CHARACTER SET = utf8mb4
@@ -170,7 +170,7 @@ CREATE TABLE `users` (
   INDEX `users_role_id_foreign` (`role_id` ASC) VISIBLE,
   CONSTRAINT `users_role_id_foreign`
     FOREIGN KEY (`role_id`)
-    REFERENCES `autobot_laravel`.`roles` (`id`))
+    REFERENCES `roles` (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
