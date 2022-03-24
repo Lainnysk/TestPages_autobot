@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TelegramUserController;
+use App\Models\TelegramUser;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::apiResource('telegram_user', TelegramUserController::class);
