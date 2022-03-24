@@ -6,12 +6,11 @@
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`messages`
 -- -----------------------------------------------------
-
 CREATE TABLE `messages` (
-  `message_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `message_text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message_id` varchar(255) NOT NULL,
+  `message_text` varchar(255) NOT NULL,
   PRIMARY KEY (`message_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+);
 
 -- -----------------------------------------------------
 -- Table `autobot_laravel`.`telegram_users`
@@ -19,14 +18,14 @@ CREATE TABLE `messages` (
 
 CREATE TABLE `telegram_users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `lot_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telegram_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `lot_number` varchar(255) DEFAULT NULL,
+  `telegram_id` varchar(255) DEFAULT NULL,
   `approved` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `telegram_users_telegram_id_unique` (`telegram_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+);
 
 
 -- -----------------------------------------------------
@@ -35,20 +34,20 @@ CREATE TABLE `telegram_users` (
 
 CREATE TABLE `reg_cars` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `num_car` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `add_info` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `num_car` varchar(255) NOT NULL,
+  `add_info` varchar(255) NOT NULL,
   `date_time` datetime NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `comment` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `phone_number` varchar(255) NOT NULL,
+  `comment` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
   `approved` int(11) NOT NULL,
   `telegram_user_id` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `reg_cars_telegram_user_id_foreign` (`telegram_user_id`),
   CONSTRAINT `reg_cars_telegram_user_id_foreign` FOREIGN KEY (`telegram_user_id`) REFERENCES `telegram_users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+);
 
 
 -- -----------------------------------------------------
@@ -57,9 +56,9 @@ CREATE TABLE `reg_cars` (
 
 CREATE TABLE `roles` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+);
 
 
 -- -----------------------------------------------------
@@ -69,11 +68,11 @@ CREATE TABLE `roles` (
 
 CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100)  DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `role_id` bigint(20) unsigned NOT NULL,
@@ -81,7 +80,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_role_id_foreign` (`role_id`),
   CONSTRAINT `users_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+);
 
 
 -- -----------------------------------------------------
