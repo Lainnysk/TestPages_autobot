@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TelegramUserController;
 use App\Models\TelegramUser;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth');
+})->name('auth');
 
 Route::apiResource('telegram_user', TelegramUserController::class);
 
 Route::post('telegram_user/update', [TelegramUserController::class, 'update']);
+
+Route::post('login', [AuthController::class, 'login'])->name("login");
+
+Route::get('welcome', function(){
+    return view('welcome');
+})->name("index")->middleware('role');
+
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');

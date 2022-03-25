@@ -10,6 +10,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
+    <form action="{{ route('logout') }}" method="POST">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <button type="submit">Выйти</button>
+    </form>
     <table id="grid"></table>
     <script type="text/javascript">
     var grid;
