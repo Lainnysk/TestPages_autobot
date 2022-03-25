@@ -15,17 +15,45 @@
   </div>
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="email"><b>Email</b></label>
+    <input type="email" placeholder="Enter Username" name="email" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
 
     <button type="submit">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
+
+  <?php
+    session_start();
+    require('connect_php');
+    if (isset($_POST['email']) && isset(($_POST['password'])){
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+
+      $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
+      $result = mysqli_query($connection, $query) or die(mysqli_error(connection));
+      $count = mysqli_num_rows($result);
+
+      if($count == 1){
+        $_SESSION ['email'] = $email
+      } else {
+        $fmsg = "Ошибка";
+      }
+    }
+    if (isset($_SESSION['email'])){
+      $email = $_SESSION['email'];
+      echo "Hello" . $email . "";
+      echo "Вы вошли";
+    }
+
+?>
+
+
+
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
