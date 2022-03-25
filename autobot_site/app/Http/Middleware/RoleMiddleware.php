@@ -17,8 +17,12 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->check() && auth()->user()->getRoleId() == '1'){
-            return $next($request);
+        if(auth()->check()){
+            $role_id = auth()->user()->getRoleId();
+            if($role_id == '1' || $role_id == '2')
+            {
+                return $next($request);
+            }
         }
         else
         {

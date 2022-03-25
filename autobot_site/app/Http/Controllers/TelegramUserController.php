@@ -13,11 +13,12 @@ class TelegramUserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request  $request)
     {
-        $paginate = TelegramUser::query()->paginate(5);
+        $paginate = TelegramUser::query()->paginate($request->input('limit'));
 
         return response()->json(['message' => 'success', 'records' => $paginate->items(), 'total' => $paginate->total()], 200);
     }

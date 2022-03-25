@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('auth');
 })->name('auth');
 
-Route::apiResource('telegram_user', TelegramUserController::class);
+Route::apiResource('telegram_user', TelegramUserController::class)->middleware('role');
 
-Route::post('telegram_user/update', [TelegramUserController::class, 'update']);
+Route::post('telegram_user/update', [TelegramUserController::class, 'update'])->middleware('role');
 
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
