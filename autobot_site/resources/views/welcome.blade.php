@@ -10,9 +10,38 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
+    <form action="{{ route('logout') }}" method="POST">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <button type="submit">Выйти</button>
+    </form>
     <table id="grid"></table>
     <script type="text/javascript">
     var grid;
+    function UpAdd(e) {
+            $.ajaxSetup({
+                headers : {
+                    'X-CSRF-Token' : "{{ csrf_token() }}"
+                }
+            });
+            if (confirm('Are you sure?')) {
+                var record = {
+                    id: e.data.record.id,
+                    name: e.data.record.name,
+                    phone_number: e.data.record.phone_number,
+                    lot_number: e.data.record.lot_number,
+                    telegram_id: e.data.record.telegram_id,
+                    approved: 1
+                };
+                $.ajax({ url: '/telegram_user/update', data: record, method: 'POST' })  
+                .done(function () {
+                    alert('Nice.');
+                    grid.reload();
+                })
+                .fail(function () {
+                    alert('Failed to save.');
+                });
+            }
+        }
         function Update(e) {
             $.ajaxSetup({
                 headers : {
@@ -48,6 +77,7 @@
                     { field: 'lot_number', title: 'Номер участка'},
                     { field: 'telegram_id', title: 'ID Телеграма'},
                     { field: 'approved', title: 'Действия'},
+                    { width: 124, tmpl: '<button>Добавить</button>', align: 'center', events: { 'click': UpAdd } },
                     { width: 124, tmpl: '<button>Бан</button>', align: 'center', events: { 'click': Update } }
                 ],
                 pager: { limit: 5 }
