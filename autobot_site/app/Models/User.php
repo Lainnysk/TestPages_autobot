@@ -47,4 +47,33 @@ class User extends Authenticatable
     {
         return $this->attributes['role_id'];
     }
+
+    public function getRole(): Role
+    {
+        return Role::query()->where('id', $this->attributes['role_id'])->firstOrFail();
+    }
+
+    public function checkRole(array|string $roles): bool
+    {
+        $result = false;
+
+        $current_user_role_name = $this->getRole()->getName();
+
+        if(is_array($roles))
+        {
+            foreach($roles as $role)
+            {
+                if($role == $current_user_role_name)
+                {
+                    $result = true;
+                }
+            }
+        }
+        elseif(is_string($roles) && $roles == $current_user_role_name)
+        {
+            $result = true;
+        }
+
+        return $result;
+    }
 }
