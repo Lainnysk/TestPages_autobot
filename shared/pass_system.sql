@@ -8,7 +8,7 @@
 -- -----------------------------------------------------
 CREATE TABLE `messages` (
   `message_id` varchar(255) NOT NULL,
-  `message_text` varchar(255) NOT NULL,
+  `message_text` varchar(2000) NOT NULL,
   PRIMARY KEY (`message_id`)
 );
 
