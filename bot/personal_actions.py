@@ -62,13 +62,13 @@ async def echo_message(message: types.Message):
             user_req = user_req.strip().split(" ")
         
             if (len(user_req) == 2): # параметров должно быть 2
-                mark1 = user_req[0].strip()
-                number = user_req[1].strip()
-                if (not re.match(r'^\w?(\d{3})(\w{2}(\d{2,3})?)?', mark1)):
+                add_info = user_req[0].strip()
+                num_car = user_req[1].strip()
+                if (not re.match(r'^\w?(\d{3})(\w{2}(\d{2,3})?)?', add_info)):
                     await message.bot.send_message(message.from_user.id, BotDB.get_message("error_checkCarNum_message"))
                 else:
-                    if (BotDB.check_cars( message.from_user.id, mark1, number)):
-                        await message.bot.send_message(message.from_user.id, BotDB.get_message("requestIsCompleted_message") % (mark1, number))
+                    if (BotDB.check_cars( message.from_user.id, add_info, num_car)):
+                        await message.bot.send_message(message.from_user.id, BotDB.get_message("requestIsCompleted_message") % (add_info, num_car))
                         
             else:
                 # заявка заполнена не правильно - предупреждение

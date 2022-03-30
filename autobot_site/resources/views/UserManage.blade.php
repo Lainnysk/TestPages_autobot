@@ -144,7 +144,7 @@
         $(document).ready(function () {
             grid = $('#grid').grid({
                 primaryKey: 'id',
-                dataSource: '/users',
+                dataSource: '/users/index',
                 uiLibrary: 'bootstrap',
                 columns: [
                     { field: 'id', width: 32 },

@@ -6,6 +6,8 @@ use App\Models\TelegramUser;
 use App\Http\Controllers\CheckCarsController;
 use App\Http\Controllers\UserController;
 use App\Models\CheckCars;
+use App\Http\Controllers\RegCarsController;
+use App\Models\RegCars;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,7 @@ Route::post('telegram_user/update', [TelegramUserController::class, 'update'])->
 Route::post('users/update', [UserController::class, 'update'])->middleware('role:admin');
 Route::post('users/delete', [UserController::class, 'destroy'])->middleware('role:admin');
 Route::post('users/create', [UserController::class, 'store'])->middleware('role:admin');
+Route::get('users/index', [UserController::class, 'index'])->middleware('role:admin');
 
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
@@ -43,14 +46,11 @@ Route::get('UserManage', function () {
 })->name('userManage');
 
 
-Route::apiResource('check_cars', CheckCarsController::class)->middleware('role');
+Route::apiResource('reg_cars', RegCarsController::class)->middleware('role');
 
-Route::post('check_cars/update', [CheckCarsController::class, 'update'])->middleware('role');
-
-
-Route::apiResource('users', UserController::class)->middleware('role:admin');
+Route::post('reg_cars/update', [RegCarsController::class, 'update'])->middleware('role');
 
 
-Route::get('/CheckCars', function () {
-    return view('CheckCars');
-})->name('CheckCars')->middleware('role');
+Route::get('/RegCars', function () {
+    return view('RegCars');
+})->name('RegCars')->middleware('role');

@@ -20,7 +20,7 @@
         <button type="submit">Управление пользователями</button>
     </form>
 
-    <form action="{{ route('CheckCars') }}" method="GET">
+    <form action="{{ route('RegCars') }}" method="GET">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <button type="submit">Список машин</button>
     </form>

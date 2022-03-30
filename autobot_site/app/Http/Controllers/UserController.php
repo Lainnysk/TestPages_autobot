@@ -20,7 +20,7 @@ class UserController extends Controller
         $paginateNumber = $request->input('limit') ?? 5;
 
         $paginate = User::query()->paginate($paginateNumber);
-
+        
         return response()->json(['message' => 'success', 'records' => $paginate->items(), 'total' => $paginate->total()], 200);
     }
 

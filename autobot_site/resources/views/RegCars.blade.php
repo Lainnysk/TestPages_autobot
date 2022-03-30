@@ -28,14 +28,20 @@
             });
             if (confirm('Вы уверены?')) {
                 var record = {
-                    mark1: e.data.record.mark1,
-                    id_telegramm: e.data.record.id_telegramm,
-                    number: e.data.record.number,
+                    num_car: e.data.record.num_car,
+                    telegram_user_id: e.data.record.telegram_user_id,
+                    address: e.data.record.address,
+                    date_time: e.data.record.date_time,
+                    full_name: e.data.record.full_name,
+                    phone_number: e.data.record.phone_number,
+                    comment: e.data.record.comment,
+                    status: e.data.record.status,
+                    add_info: e.data.record.add_info,
                     id: e.data.record.id,
                     approved: 1
 
                 };
-                $.ajax({ url: '/check_cars/update', data: record, method: 'POST' })  
+                $.ajax({ url: '/reg_cars/update', data: record, method: 'POST' })  
                 .done(function () {
                     alert('Nice.');
                     grid.reload();
@@ -53,13 +59,19 @@
             });
             if (confirm('Вы уверены?')) {
                 var record = {
-                    mark1: e.data.record.mark1,
-                    id_telegramm: e.data.record.id_telegramm,
-                    number: e.data.record.number,
+                    num_car: e.data.record.num_car,
+                    telegram_user_id: e.data.record.telegram_user_id,
+                    address: e.data.record.address,
+                    date_time: e.data.record.date_time,
+                    full_name: e.data.record.full_name,
+                    phone_number: e.data.record.phone_number,
+                    comment: e.data.record.comment,
+                    status: e.data.record.status,
+                    add_info: e.data.record.add_info,
                     id: e.data.record.id,
                     approved: 2
                 };
-                $.ajax({ url: '/check_cars/update', data: record, method: 'POST' })  
+                $.ajax({ url: '/reg_cars/update', data: record, method: 'POST' })  
                 .done(function () {
                     alert('Nice.');
                     grid.reload();
@@ -71,13 +83,19 @@
         }
         $(document).ready(function () {
             grid = $('#grid').grid({
-                dataSource: '/check_cars/',
+                dataSource: '/reg_cars/',
                 columns: [
 
-                    { field: 'mark1', title: 'Марка', sortable: true},
-                    { field: 'id_telegramm', title: 'ID телеграмм пользователя'},
-                    { field: 'number', title: 'Номер машины'},
-                    { field: 'id', title: 'id'},
+                    { field: 'add_info', title: 'Марка', sortable: true},
+                    { field: 'telegram_user_id', title: 'ID телеграмм пользователя'},
+                    { field: 'num_car', title: 'Номер машины'},
+                    { field: 'date_time', title: 'Дата'},
+                    { field: 'address', title: 'Адресс'},
+                    { field: 'full_name', title: 'Имя'},
+                    { field: 'phone_number', title: 'Номер телефона'},
+                    { field: 'comment', title: 'Коментарий'},
+                    { field: 'status', title: 'статус'},
+                    { field: 'id', title: 'id', hidden: true},
                     { field: 'approved', title: 'Действия'},
                     { width: 124, tmpl: '<button>Добавить</button>', align: 'center', events: { 'click': Dob } },
                     { width: 124, tmpl: '<button>Бан</button>', align: 'center', events: { 'click': Del } }

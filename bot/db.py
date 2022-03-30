@@ -63,11 +63,11 @@ class BotDB:
             return None
 
 
-    def check_cars(self, mark1, number, user_id ):
+    def check_cars(self, add_info, num_car, user_id ):
         """Добавляем юзера в базу"""
         try:
-            sql = "INSERT INTO check_cars (number, mark1, id_telegramm, approved) VALUES (%s, %s, %s, 0)"
-            val = (number, user_id, mark1)
+            sql = "INSERT INTO reg_cars (num_car, add_info, telegram_user_id, approved) VALUES (%s, %s, %s, 0)"
+            val = (num_car, user_id, add_info)
             connection = mysql.connector.connect(user='root', passwd="", port="3306", host="localhost", database=self.db_file)
             cursor = connection.cursor()
             cursor.execute(sql, val)
