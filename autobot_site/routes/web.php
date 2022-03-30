@@ -29,7 +29,7 @@ Route::post('telegram_user/update', [TelegramUserController::class, 'update'])->
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
 Route::get('welcome', function(){
-    return view('welcome');
+    return view('admin');
 })->name("index")->middleware('role');
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
