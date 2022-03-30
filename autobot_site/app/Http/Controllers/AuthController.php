@@ -27,4 +27,11 @@ class AuthController extends Controller
 
         return redirect(route("auth"));
     }
+
+    public function CheckCars()
+    {
+        
+
+        return redirect(route("CheckCars"));
+    }
 }

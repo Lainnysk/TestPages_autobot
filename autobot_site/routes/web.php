@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TelegramUserController;
 use App\Models\TelegramUser;
+use App\Http\Controllers\CheckCarsController;
+use App\Models\CheckCars;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +33,18 @@ Route::get('welcome', function(){
 })->name("index")->middleware('role');
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+Route::apiResource('check_cars', CheckCarsController::class)->middleware('role');
+
+Route::post('check_cars/update', [CheckCarsController::class, 'update'])->middleware('role');
+
+
+
+
+
+
+Route::get('/CheckCars', function () {
+    return view('CheckCars');
+})->name('CheckCars')->middleware('role');
