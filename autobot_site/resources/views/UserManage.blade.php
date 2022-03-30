@@ -9,6 +9,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    <a href="welcome">Назад</a>
     <div class="container-full">
         <div class="row">
             <div class="col-xs-8">
@@ -33,7 +34,28 @@
             </div>
         </div>
     </div>
-
+    <div id="dialogCreate" style="display: none">
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="nameC">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="emailC" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="passwordC" />
+            </div>
+            <div class="form-group">
+                <label for="role_id">Role ID</label>
+                <input type="text" class="form-control" id="role_idC" />
+            </div>
+            <button type="button" id="btnCreateUser" class="btn btn-default">Create</button>
+            <button type="button" id="btnCreateCancel" class="btn btn-default">Cancel</button>
+        </form>
+    </div>
     <div id="dialog" style="display: none">
         <input type="hidden" id="id" />
         <form>
@@ -64,7 +86,7 @@
                     'X-CSRF-Token' : "{{ csrf_token() }}"
                 }
             });
-        var grid, dialog;
+        var grid, dialog, dialogCreate;
         function Edit(e) {
             $('#id').val(e.data.id);
             $('#name').val(e.data.record.name);
@@ -72,6 +94,23 @@
             $('#password').val(e.data.record.password);
             $('#user_id').val(e.data.record.user_id);
             dialog.open('Edit user');
+        }
+        function Create() {
+            var record = {
+                name: $('#nameC').val(),
+                email: $('#emailC').val(),
+                password: $('#passwordC').val(),
+                role_id: $('#role_idC').val()
+            };
+            $.ajax({ url: '/users/create', data: record , method: 'POST' })
+                .done(function () {
+                    dialogCreate.close();
+                    grid.reload();
+                })
+                .fail(function () {
+                    alert('Failed to save.');
+                    dialogCreate.close();
+                });
         }
         function Save() {
             var record = {
@@ -124,16 +163,26 @@
                 resizable: false,
                 modal: true
             });
+            dialogCreate = $('#dialogCreate').dialog({
+                uiLibrary: 'bootstrap',
+                autoOpen: false,
+                resizable: false,
+                modal: true
+            });
             $('#btnAdd').on('click', function () {
-                $('#name').val('');
-                $('#email').val('');
-                $('#password').val('');
-                $('#role_id').val('');
-                dialog.open('Add user');
+                $('#nameC').val('');
+                $('#emailC').val('');
+                $('#passwordC').val('');
+                $('#role_idC').val('');
+                dialogCreate.open('Add user');
             });
             $('#btnSave').on('click', Save);
             $('#btnCancel').on('click', function () {
                 dialog.close();
+            });
+            $('#btnCreateUser').on('click', Create);
+            $('#btnCreateCancel').on('click', function(){
+                dialogCreate.close();
             });
             $('#btnSearch').on('click', function () {
                 grid.reload({ name: $('#txtName').val(), email: $('#email').val(), role_id: $('#role_id').val() });

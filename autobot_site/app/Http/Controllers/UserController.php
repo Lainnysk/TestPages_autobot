@@ -35,7 +35,7 @@ class UserController extends Controller
         $user = User::make(
             $request->getName(),
             $request->getEmail(),
-            $request->getPassword(),
+            $request->getPasswordInput(),
             $request->getRole()
         );
 
@@ -69,7 +69,7 @@ class UserController extends Controller
 
         $user->setNameIfNotEmpty($request->getName());
         $user->setEmailIfNotEmpty($request->getEmail());
-        $user->setPasswordfNotEmpty($request->getPassword());
+        $user->setPasswordfNotEmpty($request->getPasswordInput());
         $user->setRole($request->getRole());
 
         $user->save();
@@ -85,7 +85,7 @@ class UserController extends Controller
      */
     public function destroy(Request $request, User $user)
     {
-        $user = User::getById($request->getId());
+        $user = User::getById($request->input('id'));
         $result = $user->delete();
         return response()->json(['message' => $result ? 'success' : 'error'], $result ? 200 : 500);
     }
