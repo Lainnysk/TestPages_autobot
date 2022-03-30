@@ -5,6 +5,8 @@ use App\Http\Controllers\TelegramUserController;
 use App\Models\TelegramUser;
 use App\Http\Controllers\CheckCarsController;
 use App\Models\CheckCars;
+use App\Http\Controllers\RegCarsController;
+use App\Models\RegCars;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,15 +38,11 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
-Route::apiResource('check_cars', CheckCarsController::class)->middleware('role');
+Route::apiResource('reg_cars', RegCarsController::class)->middleware('role');
 
-Route::post('check_cars/update', [CheckCarsController::class, 'update'])->middleware('role');
-
-
+Route::post('reg_cars/update', [RegCarsController::class, 'update'])->middleware('role');
 
 
-
-
-Route::get('/CheckCars', function () {
-    return view('CheckCars');
-})->name('CheckCars')->middleware('role');
+Route::get('/RegCars', function () {
+    return view('RegCars');
+})->name('RegCars')->middleware('role');

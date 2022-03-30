@@ -73,7 +73,7 @@ class RegCarsController extends Controller
         $RegCars->setNumCarIfNotEmpty($request->getNumCar());
         $RegCars->setAddInfoIfNotEmpty($request->getAddInfo());
         $RegCars->setDateTimeIfNotEmpty($request->getDateTime());
-        $RegCars->setAddressIdIfNotEmpty($request->getAddress());
+        $RegCars->setAddressIfNotEmpty($request->getAddress());
         $RegCars->setFullNameIfNotEmpty($request->getFullName());
         $RegCars->setPhoneNumberIfNotEmpty($request->getPhoneNumber());
         $RegCars->setCommentIfNotEmpty($request->getComment());
