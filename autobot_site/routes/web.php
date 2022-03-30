@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TelegramUserController;
 use App\Models\TelegramUser;
 use App\Http\Controllers\CheckCarsController;
+use App\Http\Controllers\UserController;
 use App\Models\CheckCars;
 use Illuminate\Support\Facades\Route;
 
@@ -41,8 +42,7 @@ Route::apiResource('check_cars', CheckCarsController::class)->middleware('role')
 Route::post('check_cars/update', [CheckCarsController::class, 'update'])->middleware('role');
 
 
-
-
+Route::apiResource('users', UserController::class)->middleware('role:admin');
 
 
 Route::get('/CheckCars', function () {

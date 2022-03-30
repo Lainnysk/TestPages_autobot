@@ -55,4 +55,9 @@ class Role extends Model
             $this->attributes['name'] = $name;
         }
     }
+
+    public static function getById($id): Role
+    {
+        return Role::query()->where('id', $id)->firstOrFail();
+    }
 }

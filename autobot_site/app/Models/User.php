@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
@@ -24,6 +25,71 @@ class User extends Authenticatable
         'role_id'
     ];
 
+
+    public static function make(
+        $name,
+        $email,
+        $password,
+        Role $role
+    )
+    {
+        return User::query()->make([
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+            'role_id' => $role->getId()
+        ]);
+    }
+
+    public static function getById($id): User
+    {
+        return User::query()->where('id', $id)->firstOrFail();
+    }
+
+    public function getName()
+    {
+        return $this->attributes['name'];
+    }
+
+    public function getEmail()
+    {
+        return $this->attributes['email'];
+    }
+
+    public function getPassword()
+    {
+        return $this->attributes['password'];
+    }
+
+    public function setNameIfNotEmpty($name)
+    {
+        if($name != '')
+        {
+            $this->attributes['name'] = $name;
+        }
+    }
+
+    public function setEmailIfNotEmpty($email)
+    {
+        if($email != '')
+        {
+            $this->attributes['email'] = $email;
+        }
+    }
+
+    public function setPasswordfNotEmpty($password)
+    {
+        if($password != '')
+        {
+            $this->attributes['password'] = $password;
+        }
+    }
+
+    public function setRole(Role $role)
+    {
+        if($role == null) return;
+        $this->attributes['role_id'] = $role->getId();
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
