@@ -3,6 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TelegramUserController;
 use App\Models\TelegramUser;
+use App\Http\Controllers\CheckCarsController;
+use App\Http\Controllers\UserController;
+use App\Models\CheckCars;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,14 +23,28 @@ Route::get('/', function () {
     return view('auth');
 })->name('auth');
 
-Route::apiResource('telegram_user', TelegramUserController::class);
+Route::apiResource('telegram_user', TelegramUserController::class)->middleware('role');
 
-Route::post('telegram_user/update', [TelegramUserController::class, 'update']);
+Route::post('telegram_user/update', [TelegramUserController::class, 'update'])->middleware('role');
 
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
 Route::get('welcome', function(){
-    return view('welcome');
+    return view('admin');
 })->name("index")->middleware('role');
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+Route::apiResource('check_cars', CheckCarsController::class)->middleware('role');
+
+Route::post('check_cars/update', [CheckCarsController::class, 'update'])->middleware('role');
+
+
+Route::apiResource('users', UserController::class)->middleware('role:admin');
+
+
+Route::get('/CheckCars', function () {
+    return view('CheckCars');
+})->name('CheckCars')->middleware('role');
