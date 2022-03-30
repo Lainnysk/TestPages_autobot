@@ -83,7 +83,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserRequest $request, User $user)
+    public function destroy(Request $request, User $user)
     {
         $user = User::getById($request->getId());
         $result = $user->delete();

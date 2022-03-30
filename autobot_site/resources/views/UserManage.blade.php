@@ -14,8 +14,10 @@
             <div class="col-xs-8">
                 <form class="form-inline">
                     <div class="form-group">
-                        <input id="txtName" type="text" placeholder="Name..." class="form-control" />
-                        <input id="txtPlaceOfBirth" type="text" placeholder="Place Of Birth..." class="form-control" />
+                        <input id="txtName" type="text" placeholder="Name" class="form-control" />
+                        <input id="txtEmail" type="text" placeholder="Email" class="form-control" />
+                        <input id="txtPassword" type="text" placeholder="Password" class="form-control" />
+                        <input id="txtRole" type="text" placeholder="Role" class="form-control" />
                     </div>
                     <button id="btnSearch" type="button" class="btn btn-default">Search</button>
                     <button id="btnClear" type="button" class="btn btn-default">Clear</button>
@@ -33,15 +35,23 @@
     </div>
 
     <div id="dialog" style="display: none">
-        <input type="hidden" id="ID" />
+        <input type="hidden" id="id" />
         <form>
             <div class="form-group">
-                <label for="Name">Name</label>
-                <input type="text" class="form-control" id="Name">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name">
             </div>
             <div class="form-group">
-                <label for="PlaceOfBirth">Place Of Birth</label>
-                <input type="text" class="form-control" id="PlaceOfBirth" />
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="password" />
+            </div>
+            <div class="form-group">
+                <label for="role_id">Role ID</label>
+                <input type="text" class="form-control" id="role_id" />
             </div>
             <button type="button" id="btnSave" class="btn btn-default">Save</button>
             <button type="button" id="btnCancel" class="btn btn-default">Cancel</button>
@@ -49,20 +59,29 @@
     </div>
 
     <script type="text/javascript">
+        $.ajaxSetup({
+                headers : {
+                    'X-CSRF-Token' : "{{ csrf_token() }}"
+                }
+            });
         var grid, dialog;
         function Edit(e) {
-            $('#ID').val(e.data.id);
-            $('#Name').val(e.data.record.Name);
-            $('#PlaceOfBirth').val(e.data.record.PlaceOfBirth);
-            dialog.open('Edit Player');
+            $('#id').val(e.data.id);
+            $('#name').val(e.data.record.name);
+            $('#email').val(e.data.record.email);
+            $('#password').val(e.data.record.password);
+            $('#user_id').val(e.data.record.user_id);
+            dialog.open('Edit user');
         }
         function Save() {
             var record = {
-                ID: $('#ID').val(),
-                Name: $('#Name').val(),
-                PlaceOfBirth: $('#PlaceOfBirth').val()
+                id: $('#id').val(),
+                name: $('#name').val(),
+                email: $('#email').val(),
+                password: $('#password').val(),
+                role_id: $('#role_id').val()
             };
-            $.ajax({ url: '/Players/Save', data: { record: record }, method: 'POST' })
+            $.ajax({ url: '/users/update', data: record , method: 'POST' })
                 .done(function () {
                     dialog.close();
                     grid.reload();
@@ -74,7 +93,7 @@
         }
         function Delete(e) {
             if (confirm('Are you sure?')) {
-                $.ajax({ url: '/Players/Delete', data: { id: e.data.id }, method: 'POST' })
+                $.ajax({ url: '/users/delete', data: { id: e.data.id }, method: 'POST' })
                     .done(function () {
                         grid.reload();
                     })
@@ -85,13 +104,15 @@
         }
         $(document).ready(function () {
             grid = $('#grid').grid({
-                primaryKey: 'ID',
-                dataSource: '/Players/Get',
+                primaryKey: 'id',
+                dataSource: '/users',
                 uiLibrary: 'bootstrap',
                 columns: [
-                    { field: 'ID', width: 32 },
-                    { field: 'Name', sortable: true },
-                    { field: 'PlaceOfBirth', title: 'Place Of Birth', sortable: true },
+                    { field: 'id', width: 32 },
+                    { field: 'name', sortable: true },
+                    { field: 'email', sortable: true },
+                    { field: 'password', sortable: true },
+                    { field: 'role_id', sortable: true },
                     { title: '', field: 'Edit', width: 34, type: 'icon', icon: 'glyphicon-pencil', tooltip: 'Edit', events: { 'click': Edit } },
                     { title: '', field: 'Delete', width: 34, type: 'icon', icon: 'glyphicon-remove', tooltip: 'Delete', events: { 'click': Delete } }
                 ],
@@ -104,22 +125,26 @@
                 modal: true
             });
             $('#btnAdd').on('click', function () {
-                $('#ID').val('');
-                $('#Name').val('');
-                $('#PlaceOfBirth').val('');
-                dialog.open('Add Player');
+                $('#name').val('');
+                $('#email').val('');
+                $('#password').val('');
+                $('#role_id').val('');
+                dialog.open('Add user');
             });
             $('#btnSave').on('click', Save);
             $('#btnCancel').on('click', function () {
                 dialog.close();
             });
             $('#btnSearch').on('click', function () {
-                grid.reload({ name: $('#txtName').val(), placeOfBirth: $('#txtPlaceOfBirth').val() });
+                grid.reload({ name: $('#txtName').val(), email: $('#email').val(), role_id: $('#role_id').val() });
             });
             $('#btnClear').on('click', function () {
-                $('#txtName').val('');
-                $('#txtPlaceOfBirth').val('');
-                grid.reload({ name: '', placeOfBirth: '' });
+                $('#id').val('');
+                $('#name').val('');
+                $('#email').val('');
+                $('#password').val('');
+                $('#role_id').val('');
+                grid.reload({ name: '', email: '', password: '', role_id: '' });
             });
         });
     </script>
