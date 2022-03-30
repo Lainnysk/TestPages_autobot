@@ -37,7 +37,7 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('UserManage', function () {
     return view('UserManage');
-})->name('usrmanage');
+})->name('userManage');
 
 
 Route::apiResource('check_cars', CheckCarsController::class)->middleware('role');

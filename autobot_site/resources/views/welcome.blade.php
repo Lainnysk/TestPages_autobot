@@ -15,7 +15,7 @@
         <button type="submit">Выйти</button>
     </form>
     
-    <form action="{{ route('user_manage') }}" method="GET">
+    <form action="{{ route('userManage') }}" method="GET">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <button type="submit">Управление пользователями</button>
     </form>
