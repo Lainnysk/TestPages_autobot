@@ -24,35 +24,6 @@
 
     <button type="submit">Login</button>
   </div>
-
-  <?php
-    session_start();
-    require('connect_php');
-    if (isset($_POST['email']) && isset(($_POST['password'])){
-      $email = $_POST['email'];
-      $password = $_POST['password'];
-
-      $query = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
-      $result = mysqli_query($connection, $query) or die(mysqli_error(connection));
-      $count = mysqli_num_rows($result);
-
-      if($count == 1){
-        $_SESSION ['email'] = $email
-      } else {
-        $fmsg = "Ошибка";
-      }
-    }
-    if (isset($_SESSION['email'])){
-      $email = $_SESSION['email'];
-      echo "Hello" . $email . "";
-      echo "Вы вошли";
-    }
-
-?>
-
-
-
-
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
