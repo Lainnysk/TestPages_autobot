@@ -62,15 +62,18 @@ async def echo_message(message: types.Message):
             user_req = user_req.strip().split(" ")
         
             if (len(user_req) == 2): # параметров должно быть 2
-                a_num = user_req[0].strip()
-                a_model = user_req[1].strip()
-                if (not re.match(r'^\w?(\d{3})(\w{2}(\d{2,3})?)?', a_num)):
+                mark1 = user_req[0].strip()
+                number = user_req[1].strip()
+                if (not re.match(r'^\w?(\d{3})(\w{2}(\d{2,3})?)?', mark1)):
                     await message.bot.send_message(message.from_user.id, BotDB.get_message("error_checkCarNum_message"))
                 else:
-                    await message.bot.send_message(message.from_user.id, BotDB.get_message("requestIsCompleted_message") % (a_num, a_model))
+                    if (BotDB.check_cars( message.from_user.id, mark1, number)):
+                        await message.bot.send_message(message.from_user.id, BotDB.get_message("requestIsCompleted_message") % (mark1, number))
+                        
             else:
                 # заявка заполнена не правильно - предупреждение
-                await message.bot.send_message(message.from_user.id, BotDB.get_message("error_repeatRequest"))
+                await message.bot.send_message(message.from_user.id, BotDB.get_message("error_repeatRequest"))# неверный ввод. для заказа пропуска введите номер и марку машины
+
 
 
 def check_phone( text ):
