@@ -35,7 +35,7 @@ Route::get('welcome', function(){
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/UserManage', function () {
+Route::get('UserManage', function () {
     return view('UserManage');
 })->name('usrmanage');
 

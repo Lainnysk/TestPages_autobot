@@ -16,17 +16,10 @@
   </div>
 
   <div class="container">
-<<<<<<< HEAD
     <label for="email"><b>Email</b></label>
     <input type="email" placeholder="Enter Username" name="email" required>
 
     <label for="password"><b>Password</b></label>
-=======
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
->>>>>>> adc211791d7f5848f9e6a906dd451311c0fef905
     <input type="password" placeholder="Enter Password" name="password" required>
 
     <button type="submit">Login</button>
