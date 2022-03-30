@@ -30,11 +30,14 @@ Route::post('telegram_user/update', [TelegramUserController::class, 'update'])->
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
 Route::get('welcome', function(){
-    return view('admin');
+    return view('welcome');
 })->name("index")->middleware('role');
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/UserManage', function () {
+    return view('UserManage');
+})->name('usrmanage');
 
 
 Route::apiResource('check_cars', CheckCarsController::class)->middleware('role');
