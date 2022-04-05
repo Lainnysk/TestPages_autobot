@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('approved');
             $table->foreignId('id_role')->references('id_role')->on('roles');
             $table->foreignId('id_essence')->references('id_essence')->on('essences')->uniqid();
-            $table->foreignId('id_address')->references('id_address')->on('addreses');
+            $table->foreignId('id_address')->references('id_address')->on('addresses');
         });
     }
 
