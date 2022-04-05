@@ -38,7 +38,7 @@ class Role extends Model
         ]);
     }
 
-    public function getNameROle()
+    public function getNameRole()
     {
         return $this->attributes['name_role'];
     }
