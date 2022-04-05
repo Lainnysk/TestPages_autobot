@@ -11,26 +11,28 @@ use App\Models\Role;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'name',
-        'email',
-        'password',
-        'role_id'
+        'surname',
+        'patronymic',
+        'phone_number',
+        'telegram_id',
+        'approved',
+        'id_role',
+        'id_essence',
+        'id_address'
     ];
 
 
     public static function make(
         $name,
-        $email,
-        $password,
-        Role $role
+        $surname,
+        $patronymic,
+        $phone_number,
+        $telegram_id,
+        $approved,
+        Essence $essence,
+        Role $role,
     )
     {
         return User::query()->make([
