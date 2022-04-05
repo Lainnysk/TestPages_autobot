@@ -55,6 +55,7 @@ CREATE TABLE `users` (
   `patronymic` varchar(255) NOT NULL,
   `phone_number` varchar(255) NOT NULL,
   `telegram_id` varchar(255) NOT NULL,
+  `remember_token` varchar(100) NOT NULL,
   `approved` int(11) NOT NULL,
   `id_role` bigint(20) unsigned NOT NULL,
   `id_essence` bigint(20) unsigned NOT NULL,

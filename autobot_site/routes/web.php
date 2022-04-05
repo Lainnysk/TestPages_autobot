@@ -34,7 +34,7 @@ Route::post('login', [AuthController::class, 'login'])->name("login");
 
 Route::get('welcome', function(){
     return view('welcome');
-})->name("index")->middleware('role');
+})->name("index")->middleware('role:admin');
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 

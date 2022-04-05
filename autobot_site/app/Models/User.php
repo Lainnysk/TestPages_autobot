@@ -25,6 +25,7 @@ class User extends Authenticatable
         'id_address'
     ];
 
+    protected $primaryKey = 'id_user';
 
     public static function make(
         $name,
