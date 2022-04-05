@@ -44,18 +44,20 @@ async def echo_message(message: types.Message):
 
                 address=str(user_data[2]).strip() 
                 
-
-                if(not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", name, surname, patronymic)):
+                if(not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", name)):
                     await message.bot.send_message(message.chat.id, BotDB.get_message("error_checkName_message"))
                 else:
-                    if(BotDB.add_address(address)):
-                        #name, surname, patronymic, phone_number, id_address, telegram_id, approved, id_role, id_essence
-                        adrs = BotDB.selectId_Address(address)
-                        if (BotDB.add_user( name, surname, patronymic, phone, adrs, message.from_user.id)): # записываем результат в базу
-                            await message.bot.send_message(message.chat.id, BotDB.get_message("regIsCompleted_message") % (user_fio, phone, address))
-                        else:
-                            await message.bot.send_message(message.chat.id, BotDB.get_message("error_reg_message"))
+                    adrs = BotDB.selectId_Address(address)
+                    
+                    if(adrs == -1):
+                        BotDB.add_address(address)
 
+                    adrs = BotDB.selectId_Address(address)
+                    if (BotDB.add_user( name, surname, patronymic, phone, adrs, message.from_user.id)): # записываем результат в базу
+                        await message.bot.send_message(message.chat.id, BotDB.get_message("regIsCompleted_message") % (user_fio, phone, address))
+                    else:
+                        await message.bot.send_message(message.chat.id, BotDB.get_message("error_reg_message"))
+                        
         # параметров меньше - пусть вводят заного
         else:
             await message.bot.send_message(message.from_user.id, BotDB.get_message("error_repeatReg_message"))
