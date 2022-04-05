@@ -17,7 +17,7 @@ class BotDB:
 
     def user_exists(self, user_id):
         """Проверяем, есть ли юзер в базе"""
-        result = self.cursor.execute(f"SELECT telegram_id FROM telegram_users WHERE telegram_id = {user_id}")
+        result = self.cursor.execute(f"SELECT telegram_id FROM users WHERE telegram_id = {user_id}")
         data = self.cursor.fetchone()
         if (data is None):
             return False
@@ -28,7 +28,7 @@ class BotDB:
         try:
             connection = mysql.connector.connect(user='root', passwd="", port="3306", host="localhost", database=self.db_file)
             cursor = connection.cursor()
-            cursor.execute(f"SELECT * FROM telegram_users WHERE telegram_id = {user_id}")
+            cursor.execute(f"SELECT * FROM users WHERE telegram_id = {user_id}")
             result = cursor.fetchone()
             connection.close()
             return result
@@ -39,7 +39,7 @@ class BotDB:
     def add_address(self, address):
         """Добавляем адрес в базу"""
         try:
-            sql = "INSERT INTO addresses (address) VALUES (%s)"
+            sql = f"INSERT INTO addresses (address) VALUES ('{address}')"
             connection = mysql.connector.connect(user='root', passwd="", port="3306", host="localhost", database=self.db_file)
             cursor = connection.cursor()
             cursor.execute(sql)
@@ -53,22 +53,23 @@ class BotDB:
     def selectId_Address(self, address):
         """Получаем ID адреса"""
         try:
-            sql = "SELECT id_address FROM addresses WHERE address = '%s'"
+            sql = f"SELECT * FROM addresses WHERE address = '{address}'"
             connection = mysql.connector.connect(user='root', passwd="", port="3306", host="localhost", database=self.db_file)
             cursor = connection.cursor()
-            id_Ad = cursor.execute(sql, address)
+            cursor.execute(sql)
+            id_Ad = cursor.fetchone()
             connection.commit()
             connection.close()
-            return id_Ad
+            return id_Ad[0] if id_Ad != None else -1
         except mysql.connector.Error as err:
             print("Something went wrong: {}".format(err))
-            return 9
+            return -2
 
 
     def add_user(self, name, surname, patronymic, user_phone, user_addr, user_id):
         """Добавляем юзера в базу"""
         try:
-            sql = "INSERT INTO telegram_users (name, surname, patronymic, phone_number, id_address, telegram_id, approved, id_role, id_essence) VALUES (%s, %s, %s, %s, %s, %s, 0, 0, 0)"
+            sql = "INSERT INTO users (name, surname, patronymic, phone_number, id_address, telegram_id, approved, id_role, id_essence) VALUES (%s, %s, %s, %s, %s, %s, 0, 0, 0)"
             val = (name, surname, patronymic, user_phone, user_addr, user_id)
             connection = mysql.connector.connect(user='root', passwd="", port="3306", host="localhost", database=self.db_file)
             cursor = connection.cursor()
