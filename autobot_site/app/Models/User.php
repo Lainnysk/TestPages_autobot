@@ -146,19 +146,19 @@ class User extends Authenticatable
 
     public function setRole(Role $role)
     {
-        if(!$role->exists) return;
+        if($role == null || !$role->exists || $role == '') return;
         $this->attributes['role_id'] = $role->getId();
     }
 
     public function setEssence(Essence $essence)
     {
-        if(!$essence->exists) return;
+        if($essence == null || !$essence->exists || $essence == '') return;
         $this->attributes['id_essence'] = $essence->getId();
     }
 
     public function setAddress(Address $address)
     {
-        if(!$address->exists) return;
+        if($address == null ||!$address->exists || $address == '') return;
         $this->attributes['id_address'] = $address->getId();
     }
 
