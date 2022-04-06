@@ -49,7 +49,7 @@ class UserRequest extends FormRequest
         return $this->input('approved');
     }
 
-    public function getRole(): Role
+    public function getRole()
     {
         if($this->input('id_role') != '')
         {
@@ -58,7 +58,7 @@ class UserRequest extends FormRequest
         return '';
     }
 
-    public function getEssence(): Essence
+    public function getEssence()
     {
         if($this->input('id_essence'))
         {
@@ -67,7 +67,7 @@ class UserRequest extends FormRequest
         return '';
     }
 
-    public function getAddress(): Address
+    public function getAddress()
     {
         if($this->input('id_address'))
         {
