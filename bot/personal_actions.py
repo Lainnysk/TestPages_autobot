@@ -3,6 +3,7 @@ from dispatcher import dp
 import config
 import re
 from bot import BotDB
+from datetime import datetime
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
@@ -62,11 +63,11 @@ async def echo_message(message: types.Message):
         else:
             await message.bot.send_message(message.from_user.id, BotDB.get_message("error_repeatReg_message"))
     else:
-        if (db_result[5] == 0): # ожидает регистрации
+        if (db_result[6] == 0): # ожидает регистрации
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_confirmReg_message"))
-        if (db_result[5] == 2): # бан
+        if (db_result[6] == 2): # бан
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_ban_message"))
-        if (db_result[5] == 1): # заявки
+        if (db_result[6] == 1): # заявки
             # пользователь существует и авторизован, значит ввёл заявку. проверяем правильность заполнения
             user_req = message.text
             user_req = user_req.strip().split(" ")
@@ -74,10 +75,16 @@ async def echo_message(message: types.Message):
             if (len(user_req) == 2): # параметров должно быть 2
                 add_info = user_req[0].strip()
                 num_car = user_req[1].strip()
+                tuser_id=str(user_req[0]).strip()
                 if (not re.match(r'^\w?(\d{3})(\w{2}(\d{2,3})?)?', add_info)):
                     await message.bot.send_message(message.from_user.id, BotDB.get_message("error_checkCarNum_message"))
                 else:
-                    if (BotDB.check_cars( message.from_user.id, add_info, num_car)):
+                    now = datetime.now()
+                formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+                tuser_id = BotDB.selectId_User(message.from_user.id)
+                
+
+                if (BotDB.check_cars(add_info, num_car, tuser_id, formatted_date)):
                         await message.bot.send_message(message.from_user.id, BotDB.get_message("requestIsCompleted_message") % (add_info, num_car))
                         
             else:

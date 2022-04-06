@@ -31,7 +31,7 @@
                     num_car: e.data.record.num_car,
                     telegram_user_id: e.data.record.telegram_user_id,
                     address: e.data.record.address,
-                    date_time: e.data.record.date_time,
+                    dateTime_order: e.data.record.date_time,
                     full_name: e.data.record.full_name,
                     phone_number: e.data.record.phone_number,
                     comment: e.data.record.comment,
@@ -60,15 +60,15 @@
             if (confirm('Вы уверены?')) {
                 var record = {
                     num_car: e.data.record.num_car,
-                    telegram_user_id: e.data.record.telegram_user_id,
+                    id_user: e.data.record.telegram_user_id,
                     address: e.data.record.address,
-                    date_time: e.data.record.date_time,
+                    dateTime_order: e.data.record.date_time,
                     full_name: e.data.record.full_name,
                     phone_number: e.data.record.phone_number,
                     comment: e.data.record.comment,
                     status: e.data.record.status,
                     add_info: e.data.record.add_info,
-                    id: e.data.record.id,
+                    id_reg_car: e.data.record.id,
                     approved: 2
                 };
                 $.ajax({ url: '/reg_cars/update', data: record, method: 'POST' })  
@@ -87,9 +87,9 @@
                 columns: [
 
                     { field: 'add_info', title: 'Марка', sortable: true},
-                    { field: 'telegram_user_id', title: 'ID телеграмм пользователя'},
+                    { field: 'user_id', title: 'ID телеграмм пользователя'},
                     { field: 'num_car', title: 'Номер машины'},
-                    { field: 'date_time', title: 'Дата'},
+                    { field: 'dateTime_order', title: 'Дата'},
                     { field: 'address', title: 'Адресс'},
                     { field: 'full_name', title: 'Имя'},
                     { field: 'phone_number', title: 'Номер телефона'},
