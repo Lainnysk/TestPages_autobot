@@ -11,11 +11,11 @@ async def start(message: types.Message):
         await message.bot.send_message(message.from_user.id, BotDB.get_message("start_hello_message"))
     else:
         await message.bot.send_message(message.from_user.id,  BotDB.get_message("start_hello_messageFor") % (str(db_result[0])))
-        if (db_result[5] == 0):
+        if (db_result[6] == 0):
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_confirmReg_message"))
-        if (db_result[5] == 2):
+        if (db_result[6] == 2):
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_ban_message"))
-        if (db_result[5] == 1):
+        if (db_result[6] == 1):
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_regIsConfirmed_message"))
 
 @dp.message_handler(commands=['help'])
@@ -44,7 +44,7 @@ async def echo_message(message: types.Message):
 
                 address=str(user_data[2]).strip() 
                 
-                if(not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", name)):
+                if(not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", name) and not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", surname) and not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", patronymic)):
                     await message.bot.send_message(message.chat.id, BotDB.get_message("error_checkName_message"))
                 else:
                     adrs = BotDB.selectId_Address(address)
@@ -58,15 +58,15 @@ async def echo_message(message: types.Message):
                     else:
                         await message.bot.send_message(message.chat.id, BotDB.get_message("error_reg_message"))
                         
-        # параметров меньше - пусть вводят заного
+        # параметров меньше - пусть вводят заново
         else:
             await message.bot.send_message(message.from_user.id, BotDB.get_message("error_repeatReg_message"))
     else:
-        if (db_result[5] == 0): # ожидает регистрации
+        if (db_result[6] == 0): # ожидает регистрации
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_confirmReg_message"))
-        if (db_result[5] == 2): # бан
+        if (db_result[6] == 2): # бан
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_ban_message"))
-        if (db_result[5] == 1): # заявки
+        if (db_result[6] == 1): # заявки
             # пользователь существует и авторизован, значит ввёл заявку. проверяем правильность заполнения
             user_req = message.text
             user_req = user_req.strip().split(" ")
