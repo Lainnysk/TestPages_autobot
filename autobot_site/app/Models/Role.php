@@ -11,12 +11,14 @@ class Role extends Model
 
     public const ROLE_ADMIN = 'admin';
     public const ROLE_GUARD = 'guard';
+    public const ROLE_LIVER = 'liver';
 
     public $timestamps = false;
 
     public static function getBaseArray(): array
     {
         $result = [];
+        $result[] = Role::ROLE_LIVER;
         $result[] = Role::ROLE_ADMIN;
         $result[] = ROle::ROLE_GUARD;
 
@@ -30,10 +32,12 @@ class Role extends Model
 
     public static function make
     (
+        $id_role,
         $name_role
     )
     {
         return Role::query()->make([
+            'id_role' => $id_role,
             'name_role' => $name_role
         ]);
     }

@@ -25,6 +25,8 @@ class User extends Authenticatable
         'id_address'
     ];
 
+    public $timestamps = false;
+
     protected $primaryKey = 'id_user';
 
     public static function make(
@@ -195,5 +197,16 @@ class User extends Authenticatable
         }
 
         return $result;
+    }
+
+    public function SendMessage(string $message)
+    {
+        $apiToken = env('BOT_TOKEN');
+        $data = [
+            'chat_id' => $this->getTelegramId(), 
+            'text' => $message
+        ];
+        $response = file_get_contents("https://api.telegram.org/bot$apiToken/sendMessage?".http_build_query($data));
+        return $response;
     }
 }

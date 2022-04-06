@@ -51,17 +51,29 @@ class UserRequest extends FormRequest
 
     public function getRole(): Role
     {
-        return Role::getById($this->input('id_role'));
+        if($this->input('id_role') != '')
+        {
+            return Role::getById($this->input('id_role'));
+        }
+        return new Role();
     }
 
     public function getEssence(): Essence
     {
-        return Essence::getEssenceById($this->input('id_essence'));
+        if($this->input('id_essence'))
+        {
+            return Essence::getEssenceById($this->input('id_essence'));
+        }
+        return new Essence();
     }
 
     public function getAddress(): Address
     {
-        return Address::getAddressById($this->input('id_address'));
+        if($this->input('id_address'))
+        {
+            return Address::getAddressById($this->input('id_address'));
+        }
+        return new Address();
     }
 
     public function getIdUser()
