@@ -62,7 +62,6 @@ CREATE TABLE `users` (
   `id_address` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `users_telegram_id_unique` (`telegram_id`),
-  UNIQUE KEY `users_id_essence_unique` (`id_essence`),
   KEY `users_id_role_foreign` (`id_role`),
   CONSTRAINT `users_id_role_foreign` FOREIGN KEY (`id_role`) REFERENCES `roles` (`id_role`),
   KEY `users_id_essence_foreign` (`id_essence`),
