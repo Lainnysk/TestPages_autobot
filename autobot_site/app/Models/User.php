@@ -25,6 +25,8 @@ class User extends Authenticatable
         'id_address'
     ];
 
+    public $timestamps = false;
+
     protected $primaryKey = 'id_user';
 
     public static function make(
