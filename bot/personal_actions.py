@@ -3,6 +3,7 @@ from dispatcher import dp
 import config
 import re
 from bot import BotDB
+from datetime import datetime
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
@@ -11,11 +12,11 @@ async def start(message: types.Message):
         await message.bot.send_message(message.from_user.id, BotDB.get_message("start_hello_message"))
     else:
         await message.bot.send_message(message.from_user.id,  BotDB.get_message("start_hello_messageFor") % (str(db_result[0])))
-        if (db_result[6] == 0):
+        if (db_result[5] == 0):
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_confirmReg_message"))
-        if (db_result[6] == 2):
+        if (db_result[5] == 2):
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_ban_message"))
-        if (db_result[6] == 1):
+        if (db_result[5] == 1):
             await message.bot.send_message(message.from_user.id, BotDB.get_message("start_regIsConfirmed_message"))
 
 @dp.message_handler(commands=['help'])
@@ -44,7 +45,7 @@ async def echo_message(message: types.Message):
 
                 address=str(user_data[2]).strip() 
                 
-                if(not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", name) and not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", surname) and not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", patronymic)):
+                if(not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", name)):
                     await message.bot.send_message(message.chat.id, BotDB.get_message("error_checkName_message"))
                 else:
                     adrs = BotDB.selectId_Address(address)
@@ -58,7 +59,7 @@ async def echo_message(message: types.Message):
                     else:
                         await message.bot.send_message(message.chat.id, BotDB.get_message("error_reg_message"))
                         
-        # параметров меньше - пусть вводят заново
+        # параметров меньше - пусть вводят заного
         else:
             await message.bot.send_message(message.from_user.id, BotDB.get_message("error_repeatReg_message"))
     else:
@@ -72,13 +73,19 @@ async def echo_message(message: types.Message):
             user_req = user_req.strip().split(" ")
         
             if (len(user_req) == 2): # параметров должно быть 2
-                add_info = user_req[0].strip()
+                model = user_req[0].strip()
                 num_car = user_req[1].strip()
-                if (not re.match(r'^\w?(\d{3})(\w{2}(\d{2,3})?)?', add_info)):
+                tuser_id=str(user_req[0]).strip()
+                if (not re.match(r'^\w?(\d{3})(\w{2}(\d{2,3})?)?', model)):
                     await message.bot.send_message(message.from_user.id, BotDB.get_message("error_checkCarNum_message"))
                 else:
-                    if (BotDB.check_cars( message.from_user.id, add_info, num_car)):
-                        await message.bot.send_message(message.from_user.id, BotDB.get_message("requestIsCompleted_message") % (add_info, num_car))
+                    now = datetime.now()
+                formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+                tuser_id = BotDB.selectId_User(message.from_user.id)
+                
+
+                if (BotDB.check_cars(model, num_car, tuser_id, formatted_date)):
+                        await message.bot.send_message(message.from_user.id, BotDB.get_message("requestIsCompleted_message") % (model, num_car))
                         
             else:
                 # заявка заполнена не правильно - предупреждение
