@@ -32,8 +32,8 @@ Route::get('users/index', [UserController::class, 'index'])->middleware('role:ad
 
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
-Route::get('welcome', function(){
-    return view('welcome');
+Route::get('admin', function(){
+    return view('admin');
 })->name("index")->middleware('role:admin');
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
