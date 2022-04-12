@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MainRequests\UserRequest;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
@@ -91,6 +92,25 @@ class UserController extends Controller
 
         $response = $user->SendMessage($message);
         return response()->json(['message' => 'success', 'records' => $response ?? $user], 200);
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function addFiveRandomUsers(Request $request)
+    {
+        User::factory()->count(5)->create();
+        return response()->json(['message' => 'success'], 200);
+    }
+
+
+    public function getUsersCount()
+    {
+        $count = User::query()->count();
+        return response()->json(['message' => 'success', 'count' => $count], 200);
     }
 
     /**

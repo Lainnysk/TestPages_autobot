@@ -57,7 +57,7 @@
         </form>
     </div>
     <div id="dialog" style="display: none">
-        <input type="hidden" id="id" />
+        <input type="hidden" id="id_user" />
         <form>
             <div class="form-group">
                 <label for="name">Name</label>
@@ -88,7 +88,7 @@
             });
         var grid, dialog, dialogCreate;
         function Edit(e) {
-            $('#id').val(e.data.id);
+            $('#id_user').val(e.data.record.user_id);
             $('#name').val(e.data.record.name);
             $('#email').val(e.data.record.email);
             $('#password').val(e.data.record.password);
@@ -114,7 +114,7 @@
         }
         function Save() {
             var record = {
-                id: $('#id').val(),
+                id: $('#id_user').val(),
                 name: $('#name').val(),
                 email: $('#email').val(),
                 password: $('#password').val(),
@@ -132,7 +132,7 @@
         }
         function Delete(e) {
             if (confirm('Are you sure?')) {
-                $.ajax({ url: '/users/delete', data: { id: e.data.id }, method: 'POST' })
+                $.ajax({ url: '/users/delete', data: { id_user: e.data.record.id_user }, method: 'POST' })
                     .done(function () {
                         grid.reload();
                     })
@@ -147,11 +147,11 @@
                 dataSource: '/users/index',
                 uiLibrary: 'bootstrap',
                 columns: [
-                    { field: 'id', width: 32 },
+                    { field: 'id_user', width: 32 },
                     { field: 'name', sortable: true },
                     { field: 'email', sortable: true },
                     { field: 'password', sortable: true },
-                    { field: 'role_id', sortable: true },
+                    { field: 'id_role', sortable: true },
                     { title: '', field: 'Edit', width: 34, type: 'icon', icon: 'glyphicon-pencil', tooltip: 'Edit', events: { 'click': Edit } },
                     { title: '', field: 'Delete', width: 34, type: 'icon', icon: 'glyphicon-remove', tooltip: 'Delete', events: { 'click': Delete } }
                 ],
@@ -188,7 +188,7 @@
                 grid.reload({ name: $('#txtName').val(), email: $('#email').val(), role_id: $('#role_id').val() });
             });
             $('#btnClear').on('click', function () {
-                $('#id').val('');
+                $('#id_user').val('');
                 $('#name').val('');
                 $('#email').val('');
                 $('#password').val('');

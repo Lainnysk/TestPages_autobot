@@ -13,6 +13,8 @@ use App\Models\Address;
 
 class User extends Authenticatable
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'surname',
