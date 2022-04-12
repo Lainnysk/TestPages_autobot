@@ -26,6 +26,7 @@ class Address extends Model
         }
     }
 
+    protected $primaryKey = 'id_address';
 
     public $timestamps = false;
 

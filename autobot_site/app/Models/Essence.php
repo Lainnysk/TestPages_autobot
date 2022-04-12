@@ -18,6 +18,8 @@ class Essence extends Model
 
     public $timestamps = false;
 
+    protected $primaryKey = 'id_essence';
+
     public static function make(
         $email,
         $password
@@ -63,6 +65,11 @@ class Essence extends Model
     public static function getEssenceById($id)
     {
         return Essence::query()->where('id_essence', $id)->firstOrFail();
+    }
+
+    public static function getEssenceByEmail($email)
+    {
+        return Essence::query()->where('email', $email)->first();
     }
 
 }

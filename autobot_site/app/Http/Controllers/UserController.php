@@ -40,12 +40,23 @@ class UserController extends Controller
      */
     public function store(UserCreateRequest $request)
     {
-        $essence = Essence::make(
-            $request->getEmail(),
-            $request->getPasswordAttribute()
-        );
-
-        $essence->save();
+        $essence = new Essence();
+        if(Essence::getEssenceByEmail($request->getEmail()) == null)
+        {
+            $essence = Essence::make(
+                $request->getEmail(),
+                $request->getPasswordAttribute()
+            );
+            $essence->save();
+        }
+        elseif(User::query()->where('id_essence', Essence::getEssenceByEmail($request->getEmail()))->first() == null)
+        {
+            $essence = Essence::getEssenceByEmail($request->getEmail());
+        }
+        else
+        {
+            return response()->json(['messsage' => 'The email has already been taken."'], 500);
+        }
 
         $address = Address::query()->where('address', $request->getAddressAttribute())->first() != null ? Address::getAddressByAddressAttribute($request->getAddressAttribute()) : Address::make($request->getAddressAttribute());
         $address->save();
