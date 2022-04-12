@@ -2,25 +2,24 @@
 
 namespace App\Console\Commands;
 
-use App\Models\User;
+use App\Models\RegCars;
 use Illuminate\Console\Command;
 
-class DataGenerator extends Command
+class CarsGenerator extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'generateUsers';
+    protected $signature = 'generateRegCars';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Генерация данных';
-
+    protected $description = 'Создание данных';
     /**
      * Execute the console command.
      *
@@ -28,7 +27,7 @@ class DataGenerator extends Command
      */
     public function handle()
     {
-        $this->info(sprintf("Создано %s пользователей", User::factory()->count(1)->create()->count()));
+        $this->info(sprintf("Создано %s машин", RegCars::factory()->count(1)->create()->count()));
         return 0;
     }
 }
