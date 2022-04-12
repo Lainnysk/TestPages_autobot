@@ -80,4 +80,19 @@ class UserRequest extends FormRequest
     {
         return $this->input('id_user');
     }
+
+    public function getEmail()
+    {
+        return $this->input('email');
+    }
+
+    public function getPasswordAttribute()
+    {
+        return $this->input('password');
+    }
+
+    public function getAddressAttribute()
+    {
+        return $this->input('address');
+    }
 }

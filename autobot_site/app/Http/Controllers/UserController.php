@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MainRequests\UserRequest;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Models\Address;
+use App\Models\Essence;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,6 +40,16 @@ class UserController extends Controller
      */
     public function store(UserCreateRequest $request)
     {
+        $essence = Essence::make(
+            $request->getEmail(),
+            $request->getPasswordAttribute()
+        );
+
+        $essence->save();
+
+        $address = Address::query()->where('address', $request->getAddressAttribute())->first()->exists() ? Address::getAddressByAddressAttribute($request->getAddressAttribute()) : Address::make($request->getAddressAttribute());
+        $address->save();
+
         $user = User::make(
             $request->getName(),
             $request->getSurname(),
@@ -46,8 +58,8 @@ class UserController extends Controller
             $request->getTelegramId(),
             $request->getApproved(),
             $request->getRole(),
-            $request->getEssence(),
-            $request->getAddress()
+            $request->$essence->getId(),
+            $request->$address->getId()
         );
 
         $user->save();

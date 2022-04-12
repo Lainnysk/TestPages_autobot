@@ -40,4 +40,9 @@ class Address extends Model
     {
         return Address::query()->where('id_address', $id)->firstOrFail();
     }
+
+    public static function getAddressByAddressAttribute($address)
+    {
+        return Address::query()->where('address', $address)->firstOrFail();
+    }
 }
