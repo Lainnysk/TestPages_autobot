@@ -47,7 +47,7 @@ class UserController extends Controller
 
         $essence->save();
 
-        $address = Address::query()->where('address', $request->getAddressAttribute())->first()->exists() ? Address::getAddressByAddressAttribute($request->getAddressAttribute()) : Address::make($request->getAddressAttribute());
+        $address = Address::query()->where('address', $request->getAddressAttribute())->first() != null ? Address::getAddressByAddressAttribute($request->getAddressAttribute()) : Address::make($request->getAddressAttribute());
         $address->save();
 
         $user = User::make(

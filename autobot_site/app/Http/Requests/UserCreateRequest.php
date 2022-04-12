@@ -15,7 +15,7 @@ class UserCreateRequest extends UserRequest
     public function rules()
     {
         return [
-            //
+            'email' => 'required|email|unique:'.User::class,',email',
         ];
     }
 }

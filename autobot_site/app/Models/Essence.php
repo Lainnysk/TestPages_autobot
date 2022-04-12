@@ -16,6 +16,8 @@ class Essence extends Model
         'password',
     ];
 
+    public $timestamps = false;
+
     public static function make(
         $email,
         $password

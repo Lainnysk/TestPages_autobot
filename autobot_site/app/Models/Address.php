@@ -26,6 +26,9 @@ class Address extends Model
         }
     }
 
+
+    public $timestamps = false;
+
     public function getAddressAttribute()
     {
         return $this->attributes['address'];
