@@ -47,6 +47,6 @@ class Address extends Model
 
     public static function getAddressByAddressAttribute($address)
     {
-        return Address::query()->where('address', $address)->firstOrFail();
+        return Address::query()->where('address', $address)->first();
     }
 }

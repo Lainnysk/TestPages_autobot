@@ -90,30 +90,56 @@ class UserController extends Controller
     {
         $user = User::getById($request->getIdUser());
 
+        $address = $user->getAddress();
+        $essence = $user->getEssence();
+
+        if(Essence::getEssenceByEmail($request->getEmail()) != null && Essence::getEssenceByEmail($request->getEmail())->getId() != $essence->getId())
+        {
+            return response()->json(['messsage' => 'The email has already been taken."'], 500);
+        }
+
+        $essence->setEmailIfNotEmpty($request->getEmail());
+        $essence->setPasswordIfNotEmpty($request->getPasswordAttribute());
+
+        if(Address::getAddressByAddressAttribute($request->getAddressAttribute()) != null)
+        {
+            $user->setAddress(Address::getAddressByAddressAttribute($request->getAddressAttribute()));
+        }
+        elseif($request->getAddressAttribute() != '')
+        {
+            $address =  Address::make($request->getAddressAttribute());
+            $address->save();
+            $user->setAddress($address);
+        }
+
         $user->setNameIfNotEmpty($request->getName());
         $user->setSurnameIfNotEmpty($request->getSurname());
         $user->setPatronymicIfNotEmpty($request->getPatronymic());
         $user->setPhoneNumberIfNotEmpty($request->getPhoneNumber());
         $user->setTelegramIdIfNotEmpty($request->getTelegramId());
-        $user->setApprovedIfNotEmpty($request->getApproved());
         $user->setRole($request->getRole());
-        $user->setEssence($request->getEssence());
-        $user->setAddress($request->getAddress());
 
+
+        $response = $user;
+        if($user->getApproved() != $request->getApproved())
+        {
+            $message = "";
+            if($request->getApproved() == 1)
+            {
+                $message = sprintf("Здравствуйте, %s. Ваша регистрация восстановлена! Теперь вы можете оформлять пропуска для въезда автомобилей на территорию посёлка. Для заказа пропуска введите номер и марку машины", $user->getName());   
+            }
+            if($request->getApproved() == 2)
+            {
+                $message = sprintf("Здравствуйте, %s. Вы забанены!", $user->getName());   
+            }
+            $response = $user->SendMessage($message);
+        }
+
+        $user->setApprovedIfNotEmpty($request->getApproved());
+        $address->save();
+        $essence->save();
         $user->save();
 
-        
-        $message = "";
-        if($request->getApproved() == 1)
-        {
-            $message = sprintf("Здравствуйте, %s. Ваша регистрация восстановлена! Теперь вы можете оформлять пропуска для въезда автомобилей на территорию посёлка. Для заказа пропуска введите номер и марку машины", $user->getName());   
-        }
-        if($request->getApproved() == 2)
-        {
-            $message = sprintf("Здравствуйте, %s. Вы забанены!", $user->getName());   
-        }
-
-        $response = $user->SendMessage($message);
         return response()->json(['message' => 'success', 'records' => $response ?? $user], 200);
     }
 
