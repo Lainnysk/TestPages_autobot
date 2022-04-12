@@ -146,7 +146,7 @@
                 address: $('#addressC').val(),
                 telegram_id: $('#telegram_idC').val(),
                 approved: $('#approvedC').val(),
-                role_id: $('#role_idC').val()
+                id_role: $('#role_idC').val()
             };
             $.ajax({ url: '/users/create', data: record , method: 'POST' })
                 .done(function () {
@@ -168,7 +168,6 @@
                 name_address: $('#name_address').val(),
                 telegram_id: $('#telegram_id').val(),
                 approved: $('#approved').val(),
-                role: $('#role').val(),
                 email: $('#email').val(),
                 password: $('#password').val(),
                 role_id: $('#role_id').val()
