@@ -96,6 +96,30 @@
                 <input type="text" class="form-control" id="name">
             </div>
             <div class="form-group">
+                <label for="surname">Surname</label>
+                <input type="text" class="form-control" id="surname">
+            </div>
+            <div class="form-group">
+                <label for="patronymic">Patronymic</label>
+                <input type="text" class="form-control" id="patronymic">
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone number</label>
+                <input type="text" class="form-control" id="phone_number">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address">
+            </div>
+            <div class="form-group">
+                <label for="telegram_id">Telegram ID</label>
+                <input type="text" class="form-control" id="telegram_id">
+            </div>
+            <div class="form-group">
+                <label for="approved">Approved</label>
+                <input type="text" class="form-control" id="approved">
+            </div>
+            <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="email" />
             </div>
@@ -120,7 +144,7 @@
             });
         var grid, dialog, dialogCreate;
         function Edit(e) {
-            $('#id_user').val(e.data.record.user_id);
+            $('#id_user').val(e.data.record.id_user);
             $('#name').val(e.data.record.name);
             $('#surname').val(e.data.record.surname);
             $('#patronymic').val(e.data.record.patronymic);
@@ -160,17 +184,17 @@
         }
         function Save() {
             var record = {
-                id: $('#id_user').val(),
+                id_user: $('#id_user').val(),
                 name: $('#name').val(),
+                email: $('#email').val(),
+                password: $('#password').val(),
                 surname: $('#surname').val(),
                 patronymic: $('#patronymic').val(),
                 phone_number: $('#phone_number').val(),
-                name_address: $('#name_address').val(),
+                address: $('#address').val(),
                 telegram_id: $('#telegram_id').val(),
                 approved: $('#approved').val(),
-                email: $('#email').val(),
-                password: $('#password').val(),
-                role_id: $('#role_id').val()
+                id_role: $('#role_id').val()
             };
             $.ajax({ url: '/users/update', data: record , method: 'POST' })
                 .done(function () {
@@ -259,11 +283,11 @@
                 $('#phone_number').val('');
                 $('#telegram_id').val('');
                 $('#approved').val('');
-                $('#name').val('');
+                $('#role').val('');
                 $('#email').val('');
                 $('#password').val('');
                 $('#role_id').val('');
-                grid.reload({ name: '', email: '', password: '', role_id: '' });
+                grid.reload({ name: '', surname: '', patronymic: '', phone_number: '', telegram_id: '', approved: '', role: '', email: '', password: '', role_id: '' });
             });
         });
     </script>
