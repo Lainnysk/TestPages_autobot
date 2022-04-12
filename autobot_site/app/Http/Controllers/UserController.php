@@ -97,6 +97,14 @@ class UserController extends Controller
         {
             return response()->json(['messsage' => 'The email has already been taken."'], 500);
         }
+        if(User::query()->where('id_essence', $essence->getId())->count() > 1)
+        {
+            $essence = Essence::make(
+                $request->getEmail(),
+                $request->getPasswordAttribute()
+            );
+            $essence->save();
+        }
 
         $essence->setEmailIfNotEmpty($request->getEmail());
         $essence->setPasswordIfNotEmpty($request->getPasswordAttribute());
@@ -138,6 +146,7 @@ class UserController extends Controller
         $user->setApprovedIfNotEmpty($request->getApproved());
         $address->save();
         $essence->save();
+        $user->setEssence($essence);
         $user->save();
 
         return response()->json(['message' => 'success', 'records' => $response ?? $user], 200);
