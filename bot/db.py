@@ -69,7 +69,7 @@ class BotDB:
     def add_user(self, name, surname, patronymic, user_phone, user_addr, user_id):
         """Добавляем юзера в базу"""
         try:
-            sql = "INSERT INTO users (name, surname, patronymic, phone_number, id_address, telegram_id, approved, id_role, id_essence) VALUES (%s, %s, %s, %s, %s, %s, 0, 0, 0)"
+            sql = "INSERT INTO users (name, surname, patronymic, phone_number, id_address, telegram_id, approved, id_role, id_essence) VALUES (%s, %s, %s, %s, %s, %s, 0, 1, 0)"
             val = ( surname, name, patronymic, user_phone, user_addr, user_id)
             connection = mysql.connector.connect(user='root', passwd="", port="3306", host="localhost", database=self.db_file)
             cursor = connection.cursor()

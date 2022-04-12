@@ -16,6 +16,12 @@
                 <form class="form-inline">
                     <div class="form-group">
                         <input id="txtName" type="text" placeholder="Name" class="form-control" />
+                        <input id="txtSurname" type="text" placeholder="Surname" class="form-control" />
+                        <input id="txtPatronymic" type="text" placeholder="Patronymic" class="form-control" />
+                        <input id="txtPhone_number" type="text" placeholder="Phone number" class="form-control" />
+                        <input id="txtTelegram_id" type="text" placeholder="Telegram ID" class="form-control" />
+                        <input id="txtApproved" type="text" placeholder="Approved" class="form-control" />
+                        <input id="txtRole" type="text" placeholder="Role" class="form-control" />
                         <input id="txtEmail" type="text" placeholder="Email" class="form-control" />
                         <input id="txtPassword" type="text" placeholder="Password" class="form-control" />
                         <input id="txtRole" type="text" placeholder="Role" class="form-control" />
@@ -40,6 +46,27 @@
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="nameC">
             </div>
+            <div class="form-group">
+                <label for="surname">Surname</label>
+                <input type="text" class="form-control" id="surnameC">
+            </div>
+            <div class="form-group">
+                <label for="patronymic">Patronymic</label>
+                <input type="text" class="form-control" id="patronymicC">
+            </div>
+            <div class="form-group">
+                <label for="phone_number">Phone number</label>
+                <input type="text" class="form-control" id="phone_numberC">
+            </div>
+            <div class="form-group">
+                <label for="telegram_id">Telegram ID</label>
+                <input type="text" class="form-control" id="telegram_idC">
+            </div>
+            <div class="form-group">
+                <label for="approved">Approved</label>
+                <input type="text" class="form-control" id="approvedC">
+            </div>
+
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="emailC" />
@@ -90,6 +117,14 @@
         function Edit(e) {
             $('#id_user').val(e.data.record.user_id);
             $('#name').val(e.data.record.name);
+            $('#surname').val(e.data.record.surname);
+            $('#patronymic').val(e.data.record.patronymic);
+            $('#phone_number').val(e.data.record.phone_number);
+            $('#name_address').val(e.data.record.name_address);
+            $('#telegram_id').val(e.data.record.telegram_id);
+            $('#approved').val(e.data.record.approved);
+            $('#role').val(e.data.record.role);
+
             $('#email').val(e.data.record.email);
             $('#password').val(e.data.record.password);
             $('#user_id').val(e.data.record.user_id);
@@ -116,6 +151,13 @@
             var record = {
                 id: $('#id_user').val(),
                 name: $('#name').val(),
+                surname: $('#surname').val(),
+                patronymic: $('#patronymic').val(),
+                phone_number: $('#phone_number').val(),
+                name_address: $('#name_address').val(),
+                telegram_id: $('#telegram_id').val(),
+                approved: $('#approved').val(),
+                role: $('#role').val(),
                 email: $('#email').val(),
                 password: $('#password').val(),
                 role_id: $('#role_id').val()
@@ -147,11 +189,17 @@
                 dataSource: '/users/index',
                 uiLibrary: 'bootstrap',
                 columns: [
-                    { field: 'id_user', width: 32 },
-                    { field: 'name', sortable: true },
-                    { field: 'email', sortable: true },
-                    { field: 'password', sortable: true },
-                    { field: 'id_role', sortable: true },
+                    { field: 'id_user', hidden: true, width: 40 },
+                    { field: 'name', title: 'Имя', sortable: true },
+                    { field: 'surname', title: 'Фамилия', sortable: true },
+                    { field: 'patronymic', title: 'Отчетство', sortable: true },
+                    { field: 'phone_number', title: 'Номер телефона', sortable: true },
+                    { field: 'address', title: 'Адрес', sortable: true },
+                    { field: 'telegram_id', title: 'Код тг', sortable: true },
+                    { field: 'approved', title: 'Подтвержден', sortable: true },
+                    { field: 'name_role', title: 'Роль', sortable: true },
+                    { field: 'email', title: 'Email', sortable: true },
+                    { field: 'password', title: 'Пароль', sortable: true },
                     { title: '', field: 'Edit', width: 34, type: 'icon', icon: 'glyphicon-pencil', tooltip: 'Edit', events: { 'click': Edit } },
                     { title: '', field: 'Delete', width: 34, type: 'icon', icon: 'glyphicon-remove', tooltip: 'Delete', events: { 'click': Delete } }
                 ],
@@ -171,6 +219,12 @@
             });
             $('#btnAdd').on('click', function () {
                 $('#nameC').val('');
+                $('#surnameC').val('');
+                $('#patronymicC').val('');
+                $('#phone_numberC').val('');
+                $('#telegram_idC').val('');
+                $('#approvedC').val('');
+                $('#roleC').val('');
                 $('#emailC').val('');
                 $('#passwordC').val('');
                 $('#role_idC').val('');
@@ -189,6 +243,12 @@
             });
             $('#btnClear').on('click', function () {
                 $('#id_user').val('');
+                $('#name').val('');
+                $('#surname').val('');
+                $('#patronymic').val('');
+                $('#phone_number').val('');
+                $('#telegram_id').val('');
+                $('#approved').val('');
                 $('#name').val('');
                 $('#email').val('');
                 $('#password').val('');

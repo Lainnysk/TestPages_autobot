@@ -45,7 +45,7 @@ async def echo_message(message: types.Message):
 
                 address=str(user_data[2]).strip() 
                 
-                if(not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", name)):
+                if(not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", name) and not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", surname) and not re.match(r"^(?=.{1,40}$)[а-яёА-ЯЁ]+(?:[-' ][а-яёА-ЯЁ]+)*$", patronymic)):
                     await message.bot.send_message(message.chat.id, BotDB.get_message("error_checkName_message"))
                 else:
                     adrs = BotDB.selectId_Address(address)
