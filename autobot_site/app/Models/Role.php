@@ -26,18 +26,17 @@ class Role extends Model
     }
 
     protected $fillable = [
-        'id_role',
         'name_role'
     ];
 
+    protected $primaryKey = 'id_role';
+
     public static function make
     (
-        $id_role,
         $name_role
     )
     {
         return Role::query()->make([
-            'id_role' => $id_role,
             'name_role' => $name_role
         ]);
     }
