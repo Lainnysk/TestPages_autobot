@@ -36,7 +36,7 @@ class Address extends Model
 
     public function getId()
     {
-        return $this->attributes['id_address'];
+        return $this->id_address;
     }
 
     public static function getAddressById($id)
