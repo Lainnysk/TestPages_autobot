@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <title>jQuery Grid Bootstrap</title>
     <meta charset="utf-8" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -57,6 +58,10 @@
             <div class="form-group">
                 <label for="phone_number">Phone number</label>
                 <input type="text" class="form-control" id="phone_numberC">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="addressC">
             </div>
             <div class="form-group">
                 <label for="telegram_id">Telegram ID</label>
@@ -120,7 +125,7 @@
             $('#surname').val(e.data.record.surname);
             $('#patronymic').val(e.data.record.patronymic);
             $('#phone_number').val(e.data.record.phone_number);
-            $('#name_address').val(e.data.record.name_address);
+            $('#address').val(e.data.record.name_address);
             $('#telegram_id').val(e.data.record.telegram_id);
             $('#approved').val(e.data.record.approved);
             $('#role').val(e.data.record.role);
@@ -135,6 +140,12 @@
                 name: $('#nameC').val(),
                 email: $('#emailC').val(),
                 password: $('#passwordC').val(),
+                surname: $('#surnameC').val(),
+                patronymic: $('#patronymicC').val(),
+                phone_number: $('#phone_numberC').val(),
+                address: $('#addressC').val(),
+                telegram_id: $('#telegram_idC').val(),
+                approved: $('#approvedC').val(),
                 role_id: $('#role_idC').val()
             };
             $.ajax({ url: '/users/create', data: record , method: 'POST' })
