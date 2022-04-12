@@ -48,7 +48,7 @@ class Role extends Model
 
     public function getId()
     {
-        return $this->attributes['id_role'];
+        return $this->id_role;
     }
 
     public function setNameRoleIfNotEmpty($name_role)

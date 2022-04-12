@@ -57,7 +57,7 @@ class Essence extends Model
 
     public function getId()
     {
-        return $this->attributes['id_essence'];
+        return $this->id_essence;
     }
 
     public static function getEssenceById($id)

@@ -47,15 +47,8 @@ class UserController extends Controller
 
         $essence->save();
 
-        $essence = Essence::query()->where('email', $request->getEmail())->first();
-
-        if(Address::query()->where('address', $request->getAddressAttribute())->first() == null)
-        {
-            $address = Address::make($request->getAddressAttribute());
-            $address->save();
-        }
-
-        $address = Address::query()->where('address', $request->getAddressAttribute())->first();
+        $address = Address::query()->where('address', $request->getAddressAttribute())->first() != null ? Address::getAddressByAddressAttribute($request->getAddressAttribute()) : Address::make($request->getAddressAttribute());
+        $address->save();
 
         $user = User::make(
             $request->getName(),
@@ -65,8 +58,8 @@ class UserController extends Controller
             $request->getTelegramId(),
             $request->getApproved(),
             $request->getRole(),
-            $request->$essence->getId(),
-            $request->$address->getId()
+            $essence,
+            $address
         );
 
         $user->save();
