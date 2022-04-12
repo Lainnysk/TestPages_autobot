@@ -26,6 +26,7 @@ class Address extends Model
         }
     }
 
+    protected $primaryKey = 'id_address';
 
     public $timestamps = false;
 
@@ -36,7 +37,7 @@ class Address extends Model
 
     public function getId()
     {
-        return $this->attributes['id_address'];
+        return $this->id_address;
     }
 
     public static function getAddressById($id)
@@ -46,6 +47,6 @@ class Address extends Model
 
     public static function getAddressByAddressAttribute($address)
     {
-        return Address::query()->where('address', $address)->firstOrFail();
+        return Address::query()->where('address', $address)->first();
     }
 }
