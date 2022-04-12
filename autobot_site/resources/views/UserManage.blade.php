@@ -22,13 +22,13 @@
                         <input id="txtPhone_number" type="text" placeholder="Phone number" class="form-control" />
                         <input id="txtTelegram_id" type="text" placeholder="Telegram ID" class="form-control" />
                         <input id="txtApproved" type="text" placeholder="Approved" class="form-control" />
-                        <input id="txtRole" type="text" placeholder="Role" class="form-control" />
                         <input id="txtEmail" type="text" placeholder="Email" class="form-control" />
                         <input id="txtPassword" type="text" placeholder="Password" class="form-control" />
                         <input id="txtRole" type="text" placeholder="Role" class="form-control" />
                     </div>
                     <button id="btnSearch" type="button" class="btn btn-default">Search</button>
                     <button id="btnClear" type="button" class="btn btn-default">Clear</button>
+                    <button type="button" id="btnCreateTestUsers" class="btn btn-default">Add +5 users</button>
                 </form>
             </div>
             <div class="col-xs-4">
@@ -86,6 +86,7 @@
             </div>
             <button type="button" id="btnCreateUser" class="btn btn-default">Create</button>
             <button type="button" id="btnCreateCancel" class="btn btn-default">Cancel</button>
+            
         </form>
     </div>
     <div id="dialog" style="display: none">
@@ -128,8 +129,8 @@
                 <input type="text" class="form-control" id="password" />
             </div>
             <div class="form-group">
-                <label for="role_id">Role ID</label>
-                <input type="text" class="form-control" id="role_id" />
+                <label for="role">Role ID</label>
+                <input type="text" class="form-control" id="role" />
             </div>
             <button type="button" id="btnSave" class="btn btn-default">Save</button>
             <button type="button" id="btnCancel" class="btn btn-default">Cancel</button>
@@ -149,10 +150,10 @@
             $('#surname').val(e.data.record.surname);
             $('#patronymic').val(e.data.record.patronymic);
             $('#phone_number').val(e.data.record.phone_number);
-            $('#address').val(e.data.record.name_address);
+            $('#address').val(e.data.record.address);
             $('#telegram_id').val(e.data.record.telegram_id);
             $('#approved').val(e.data.record.approved);
-            $('#role').val(e.data.record.role);
+            $('#role').val(e.data.record.id_role);
 
             $('#email').val(e.data.record.email);
             $('#password').val(e.data.record.password);
@@ -256,6 +257,7 @@
                 $('#surnameC').val('');
                 $('#patronymicC').val('');
                 $('#phone_numberC').val('');
+                $('#addressC').val('');
                 $('#telegram_idC').val('');
                 $('#approvedC').val('');
                 $('#roleC').val('');
@@ -272,8 +274,14 @@
             $('#btnCreateCancel').on('click', function(){
                 dialogCreate.close();
             });
+            $('#btnCreateTestUsers').on('click', function(){
+                var x = new XMLHttpRequest();
+                x.open("GET", "/users/testData", true);
+                x.send();
+                grid.reload();
+            });
             $('#btnSearch').on('click', function () {
-                grid.reload({ name: $('#txtName').val(), email: $('#email').val(), role_id: $('#role_id').val() });
+                grid.reload({ name: $('#txtName').val(), surname: $('#txtSurname').val(), patronymic: $('#txtPatronymic').val(), phone_number: $('#txtPhone_number').val(), telegram_id: $('#txtTelegram_id').val(), approved: $('#txtApproved').val(), email: $('#txtEmail').val(), role_id: $('#txtRole_id').val() });
             });
             $('#btnClear').on('click', function () {
                 $('#id_user').val('');
@@ -287,7 +295,7 @@
                 $('#email').val('');
                 $('#password').val('');
                 $('#role_id').val('');
-                grid.reload({ name: '', surname: '', patronymic: '', phone_number: '', telegram_id: '', approved: '', role: '', email: '', password: '', role_id: '' });
+                grid.reload({ name: '', surname: '', patronymic: '', phone_number: '', telegram_id: '', approved: '', email: '', password: '', role_id: '' });
             });
         });
     </script>
