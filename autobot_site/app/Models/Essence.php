@@ -16,7 +16,7 @@ class Essence extends Model
         'password',
     ];
 
-    public function make(
+    public static function make(
         $email,
         $password
     )
@@ -62,4 +62,5 @@ class Essence extends Model
     {
         return Essence::query()->where('id_essence', $id)->firstOrFail();
     }
+
 }

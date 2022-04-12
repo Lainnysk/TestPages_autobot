@@ -28,7 +28,7 @@ class DataGenerator extends Command
      */
     public function handle()
     {
-        $this->info(sprintf("Создано %s Владельцев авто", User::factory()->count(100)->create()->count()));
+        $this->info(sprintf("Создано %s пользователей", User::factory()->count(100)->create()->count()));
         return 0;
     }
 }
