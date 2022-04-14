@@ -26,18 +26,17 @@ class Role extends Model
     }
 
     protected $fillable = [
-        'id_role',
         'name_role'
     ];
 
+    protected $primaryKey = 'id_role';
+
     public static function make
     (
-        $id_role,
         $name_role
     )
     {
         return Role::query()->make([
-            'id_role' => $id_role,
             'name_role' => $name_role
         ]);
     }
@@ -49,7 +48,7 @@ class Role extends Model
 
     public function getId()
     {
-        return $this->attributes['id_role'];
+        return $this->id_role;
     }
 
     public function setNameRoleIfNotEmpty($name_role)

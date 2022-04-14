@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Андминистратор</title>
+        <title>Администратор</title>
         <link rel="stylesheet" href="css/admin.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
         <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
@@ -29,6 +29,10 @@
                     </nav>
                 </div>
             </header>
+            <form action="{{ route('userManage') }}" method="GET">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                <button type="submit">Управление пользователями</button>
+            </form>
             <form class=formtable>
                 <div class="text2">
                     <p>ПО ФЕН-ШУЮ АДМИН ДОЛЖЕН<br/>СПАТЬ ГОЛОВОЙ<br/>НА СЕРВЕРЕ</p>
@@ -45,7 +49,8 @@
 
                 <table class="grid3" id="grid4"></table>
             </form>
-            
+
+
 
             <!-- <div class="container3">
                 <button type="submit" class="gog">УДАЛИТЬ ПОЛЬЗОВАТЕЛЯ</button>

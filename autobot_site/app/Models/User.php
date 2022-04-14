@@ -10,9 +10,12 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Role;
 use App\Models\Essence;
 use App\Models\Address;
+use Exception;
 
 class User extends Authenticatable
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'surname',
@@ -150,7 +153,7 @@ class User extends Authenticatable
     public function setRole(Role $role)
     {
         if($role == null || !$role->exists || $role == '') return;
-        $this->attributes['role_id'] = $role->getId();
+        $this->attributes['id_role'] = $role->getId();
     }
 
     public function setEssence(Essence $essence)
@@ -201,12 +204,16 @@ class User extends Authenticatable
 
     public function SendMessage(string $message)
     {
-        $apiToken = env('BOT_TOKEN');
-        $data = [
-            'chat_id' => $this->getTelegramId(), 
-            'text' => $message
-        ];
-        $response = file_get_contents("https://api.telegram.org/bot$apiToken/sendMessage?".http_build_query($data));
-        return $response;
+        try
+        {
+            $apiToken = env('BOT_TOKEN');
+            $data = [
+                'chat_id' => $this->getTelegramId(), 
+                'text' => $message
+            ];
+            $response = file_get_contents("https://api.telegram.org/bot$apiToken/sendMessage?".http_build_query($data));
+            return $response;
+        }
+        catch(Exception $e){}
     }
 }

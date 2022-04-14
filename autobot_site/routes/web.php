@@ -29,6 +29,8 @@ Route::post('users/update', [UserController::class, 'update'])->middleware('role
 Route::post('users/delete', [UserController::class, 'destroy'])->middleware('role:admin');
 Route::post('users/create', [UserController::class, 'store'])->middleware('role:admin');
 Route::get('users/index', [UserController::class, 'index'])->middleware('role:admin');
+Route::get('users/testData', [UserController::class, 'addFiveRandomUsers'])->middleware('role:admin');
+Route::get('users/getCount', [UserController::class, 'getUsersCount'])->middleware('role:admin');
 
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
