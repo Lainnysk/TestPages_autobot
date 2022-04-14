@@ -22,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth');
-})->name('auth');
+    return view('security');
+})->name('security');
 
 Route::post('users/update', [UserController::class, 'update'])->middleware('role:admin');
 Route::post('users/delete', [UserController::class, 'destroy'])->middleware('role:admin');
@@ -36,16 +36,22 @@ Route::get('admin', function(){
     return view('admin');
 })->name("index")->middleware('role:admin');
 
+
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('UserManage', function () {
     return view('UserManage');
 })->name('userManage');
 
+Route::get('user_editing', function () {
+    return view('user_editing');
+})->name('user_editing');
+
 
 Route::apiResource('reg_cars', RegCarsController::class)->middleware('role');
 
 Route::post('reg_cars/update', [RegCarsController::class, 'update'])->middleware('role');
+
 
 
 Route::get('/RegCars', function () {

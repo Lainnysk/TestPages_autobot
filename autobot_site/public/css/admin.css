@@ -26,7 +26,7 @@ a {
 }
 
 button {
-    background: #152b41;
+    background: #2B5378;
 	color: white;
 	width: 80px;
 	height: 30px;
@@ -202,38 +202,45 @@ footer {
     margin-top: 150px;
 }
 
-table{
-	width:1000px;
+#grid2{
+    margin-top: 50px;
+	width:1200px;
 	height:200px;
 	border-style:solid;
 	border-bottom-width:thin;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:15px;
     
-	margin:0 auto;
-       table-layout:fixed;
-       empty-cells:show; 
-       
-       margin:0 auto;
-       font-size:14px;
-       
-       color:#ffffff;
-       background-color: #1d3852;
-       border-radius: 2%;
+    color:#353535;
+    
+    border-radius: 10px;
 }
 
-.fi_tr{
-	background:url(img/table_header.png);
-	text-align:center;
-	height:30px;
+#grid4{
+	width:1200px;
+	height:200px;
+    margin-top: 150px;
+	border-style:solid;
+	border-bottom-width:thin;
+    background: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:15px;
+    
+    color:#353535;
+    
+    border-radius: 10px;
 }
+
 td{
 	overflow:hidden;
 	 height:25px;
-	 border:1px solid #cad9ea;
+	 border:1px solid #999999;
    	 padding:0 1em 0;
 }
 
 tr:hover{
-	background-color:#49717a7a;
+	background-color:#b4b1b1;
 }
 
 .odd{

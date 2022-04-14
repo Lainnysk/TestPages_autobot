@@ -3,6 +3,16 @@
     padding: 0;
 }
 
+table button {
+    background: #353535;
+	color: white;
+	width: 80px;
+	height: 30px;
+	transition: all 0.5s ease;
+	border-radius: 5px;
+	border: #ffffff;
+}
+
 body {
     font-family: 'Open Sans';
     font-weight: 400;
@@ -28,8 +38,8 @@ a {
 button {
     background: #2B5378;
 	color: white;
-	width: 135px;
-	height: 30px;
+	width: 140px;
+	height: 50px;
 	margin-left: 15px;
 	transition: all 0.5s ease;
 	border-radius: 10px;
@@ -83,7 +93,7 @@ button {
     text-align: left;
     letter-spacing: 0.04em;
     color: #FFFFFF;
-    margin-top: 250px;
+    margin-top: 310px;
     margin-left: 800px;
 }
 
@@ -186,4 +196,52 @@ footer {
     width: 100%;
     height: 25px;
     margin-top: 0px;
+}
+
+.grid1{
+    margin-top: 40px;
+}
+
+.grid3{
+    margin-top: 60px;
+}
+
+table{
+	width:1200px;
+	height:200px;
+	border-style:solid;
+	border-bottom-width:thin;
+    
+	margin:0 auto;
+       table-layout:fixed;
+       empty-cells:show; 
+       
+       margin:0 auto;
+       font-size:18px;
+       
+       color:#353535;
+       background-color: #ffffff;
+       border-radius: 10px;
+}
+
+
+
+.fi_tr{
+	background:url(img/table_header.png);
+	text-align:center;
+	height:30px;
+}
+td{
+	overflow:hidden;
+	 height:25px;
+	 border:1px solid #353535;
+   	 padding:0 1em 0;
+}
+
+tr:hover{
+	background-color:#0000007a;
+}
+
+.odd{
+ background-color:#f5fafe;
 }
