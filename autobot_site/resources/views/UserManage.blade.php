@@ -29,7 +29,7 @@
                     <button id="btnSearch" type="button" class="btn btn-default">Search</button>
                     <button id="btnClear" type="button" class="btn btn-default">Clear</button>
                     <button type="button" id="btnCreateTestUsers" class="btn btn-default">Add +5 users</button>
-                    <button type="button" id="btnUpdateUsers" class="btn btn-default">New * users</button>
+                    <input value = "New * users" type="button" id="btnUpdateUsers" class="btn btn-default"/>
                 </form>
             </div>
             <div class="col-xs-4">
@@ -221,36 +221,31 @@
 
         let timerId = setInterval(() => {
 
-            //var form11 = document.getElementById('btnUpdateUsers');
-
-            //form11.  style.display = 'block';
-
-
-
             var xhr = new XMLHttpRequest()
             xhr.open('GET', 'users/getCount', true)
             xhr.send()
 
-            xhr.onreadystatechange = function() 
-            {
-             if (xhr.readyState != 4) {
-                 return
-             }
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState != 4) {
+                    return
+            }
+
+            var UsersCount = JSON.parse(xhr.responseText)   
+            var newUsersCount = UsersCount.count - grid.count(true)
+            $('#btnUpdateUsers').val("New " + newUsersCount + " users")
 
             if (xhr.status === 200) {
                     console.log('result', xhr.responseText)
                 } else {
                     console.log('err', xhr.responseText)
                 }
-            }
-            //var UsersCount = JSON.parse(xhr.responseText);   
-           // alert(JSON.parse(xhr.responseText));
-            //var newUsersCount = UserCount.count - grid.count();
-
-           // $('#btnUpdateUsers').val(newUsersCount);
-            
+            }            
         }, 2000);
 
+        $('#btnUpdateUsers').on('click', function () {
+            grid.reload();
+        });
+        
         $(document).ready(function () {
             grid = $('#grid').grid({
                 primaryKey: 'id',
