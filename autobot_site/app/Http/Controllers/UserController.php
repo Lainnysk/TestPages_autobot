@@ -95,7 +95,7 @@ class UserController extends Controller
 
         //if(Essence::getEssenceByEmail($request->getEmail()) != null && Essence::getEssenceByEmail($request->getEmail())->getId() != $essence->getId())
 
-        if(User::query()->where('id_essence', $essence->getId())->count() > 1 && $essence->getEmail() != $request->getEmail())
+        if($request->getEmail() != '' && User::query()->where('id_essence', $essence->getId())->count() > 1 && $essence->getEmail() != $request->getEmail())
         {
             $essence = Essence::make(
                 $request->getEmail(),

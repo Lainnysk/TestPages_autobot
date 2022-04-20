@@ -25,6 +25,10 @@ Route::get('/', function () {
     return view('auth');
 })->name('auth');
 
+Route::get('welcome', function () {
+    return view('welcome');
+})->name('welcome');
+
 Route::post('users/update', [UserController::class, 'update'])->middleware('role:admin');
 Route::post('users/delete', [UserController::class, 'destroy'])->middleware('role:admin');
 Route::post('users/create', [UserController::class, 'store'])->middleware('role:admin');
