@@ -10,6 +10,56 @@ body {
     background-image: url(../img/Fon.png);
 }
 
+
+#grid2{ 
+    margin-left: 200px;
+    width:1200px; 
+    height:200px; 
+    margin-top: 100px;
+    border-style:solid; 
+    border: 0px;   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:14px; 
+    color:#353535; 
+    background-color: #ffffff; 
+    border-radius: 20px; 
+} 
+
+#grid2 button {
+    background: #2B5378; 
+    color: white; 
+    width: 40px; 
+    height: 30px; 
+    margin-left: 12px;
+    transition: all 0.5s ease; 
+    border-radius: 10px; 
+    border: #2B5378; 
+}
+ 
+#grid4{ 
+    margin-left: 200px;
+    width: 1200px; 
+    margin-top: 100px; 
+    height:200px; 
+    border: 0px; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:15px;  
+    color:#353535; 
+    background-color: #ffffff; 
+    border-radius: 20px; 
+}
+
+#grid4 button {
+    background: #2B5378; 
+    color: white; 
+    width: 40px; 
+    height: 30px; 
+    margin-left: 12px; 
+    transition: all 0.5s ease; 
+    border-radius: 10px; 
+    border: #2B5378; 
+}
+
 html,
 body,
 .wrapper {
@@ -28,15 +78,13 @@ a {
 button {
     background: #2B5378;
 	color: white;
-	width: 135px;
-	height: 30px;
+	width: 140px;
+	height: 50px;
 	margin-left: 15px;
 	transition: all 0.5s ease;
 	border-radius: 10px;
 	border: #2B5378;
 }
-
-
 
 .text1 {
     position: absolute;
@@ -47,7 +95,7 @@ button {
     text-align: left;
     letter-spacing: 0.04em;
     color: #FFFFFF;
-    margin-left: 60px;
+    margin-left: -20px;
 }
 
 .text2 {
@@ -71,7 +119,8 @@ button {
     text-align: left;
     letter-spacing: 0.04em;
     color: #FFFFFF;
-    margin-left: 800px;
+    margin-top: 50px;
+    margin-left: 250px;
 }
 
 .text4 {
@@ -83,8 +132,8 @@ button {
     text-align: left;
     letter-spacing: 0.04em;
     color: #FFFFFF;
-    margin-top: 250px;
-    margin-left: 800px;
+    margin-top: 60px;
+    margin-left: 250px;
 }
 
 ul {
@@ -127,43 +176,11 @@ input {
 .maincontainer {
     box-sizing: border-box;
 	min-height: 100%;
-	padding-bottom: 90px;
+	padding-bottom: 0px;
 }
 
 .container {
     padding: 0 15px;
-}
-
-.container1{
-    position: absolute;
-	padding: 10 px;
-	top: 0;
-	margin-top: 11%;
-}
-
-.mainform {
-    position: absolute;
-    height: fit-content;
-}
-
-.container2{
-    position: absolute;
-	padding: 10 px;
-	top: 0;
-	margin-top: 11%;
-    margin-left: 350px;
-}
-
-.container3 {
-    position: relative;
-    margin-top: 400px;
-    margin-left: 130px;
-}
-
-.container4 {
-    position: absolute;
-    margin-left: 180px;
-    margin-top: 10px;
 }
 
 #header {
@@ -178,12 +195,12 @@ input {
     font-size: 15px;
 }
 
-footer {
+#foooter {
     position: absolute;
 	color: white;
 	text-align: center;
 	background: #2B5378;
     width: 100%;
     height: 25px;
-    margin-top: 0px;
+    margin-top: 80px;
 }

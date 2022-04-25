@@ -7,6 +7,7 @@
         <title>Администратор</title>
         <link rel="stylesheet" href="css/admin.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -17,13 +18,14 @@
             <header id="header" class="header">
                 <div class="container d-flex justify-content-between align-items-center">
                     <div class="logo">
-                        <a href="#">
+                        <a href="http://127.0.0.1:8000/">
                             <img src="img/Autobot.png" alt="logo" width="50" height="50">
                         </a>
                     </div>
                     <p class="text1">«Автобот»</p>
                     <nav class="header-nav">
-                        <a href="#">Выход</a>
+                        <a href="http://127.0.0.1:8000/user_editing">Редактироваие пользователя      |</a>
+                        <a href="http://127.0.0.1:8000/">  Выход</a>
                     </nav>
                 </div>
             </header>

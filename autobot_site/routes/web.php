@@ -22,19 +22,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth');
-})->name('auth');
+    return view('security');
+})->name('security');
 
 Route::get('welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::post('users/update', [UserController::class, 'update'])->middleware('role:admin');
-Route::post('users/delete', [UserController::class, 'destroy'])->middleware('role:admin');
-Route::post('users/create', [UserController::class, 'store'])->middleware('role:admin');
-Route::get('users/index', [UserController::class, 'index'])->middleware('role:admin');
-Route::get('users/testData', [UserController::class, 'addFiveRandomUsers'])->middleware('role:admin');
-Route::get('users/getCount', [UserController::class, 'getUsersCount'])->middleware('role:admin');
+Route::post('users/update', [UserController::class, 'update']);
+Route::post('users/delete', [UserController::class, 'destroy']);
+Route::post('users/create', [UserController::class, 'store']);
+Route::get('users/index', [UserController::class, 'index']);
+Route::get('users/testData', [UserController::class, 'addFiveRandomUsers']);
+Route::get('users/getCount', [UserController::class, 'getUsersCount']);
 
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
