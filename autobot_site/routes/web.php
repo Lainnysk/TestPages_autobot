@@ -25,10 +25,18 @@ Route::get('/', function () {
     return view('auth');
 })->name('auth');
 
-Route::post('users/update', [UserController::class, 'update']);
-Route::post('users/delete', [UserController::class, 'destroy']);
-Route::post('users/create', [UserController::class, 'store']);
-Route::get('users/index', [UserController::class, 'index']);
+Route::get('welcome', function () {
+    return view('welcome');
+})->name('welcome');
+
+Route::get('user_editing', function () {
+    return view('user_editing');
+})->name('user_editing');
+
+Route::post('users/update', [UserController::class, 'update'])->middleware('role:admin');
+Route::post('users/delete', [UserController::class, 'destroy'])->middleware('role:admin');
+Route::post('users/create', [UserController::class, 'store'])->middleware('role:admin');
+Route::get('users/index', [UserController::class, 'index'])->middleware('role:admin');
 Route::get('users/testData', [UserController::class, 'addFiveRandomUsers'])->middleware('role:admin');
 Route::get('users/getCount', [UserController::class, 'getUsersCount'])->middleware('role:admin');
 
@@ -45,9 +53,9 @@ Route::get('UserManage', function () {
     return view('UserManage');
 })->name('userManage');
 
-Route::get('user_editing', function () {
-    return view('user_editing');
-})->name('user_editing');
+Route::get('NewRegCar', function () {
+    return view('NewRegCar');
+})->name('newregcar');
 
 
 Route::apiResource('reg_cars', RegCarsController::class)->middleware('role');

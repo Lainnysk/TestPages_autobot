@@ -33,21 +33,6 @@
                 <p class="text2">РЕДАКТИРОВАНИЕ ПОЛЬЗОВАТЕЛЕЙ</p>
             </div>
             
-            <!-- <div class="container1">				
-                    <input type="text" placeholder="Фамилия" class="input" required>				
-                    <input type="text" placeholder="Имя" class="input" required>
-                    <input type="text" placeholder="Отчество" class="input" required>					
-                    <input type="text" placeholder="Марка машины" class="input" required>					 				
-                    <input type="text" placeholder="Номер машины" class="input" required>								
-                    <input type="text" placeholder="Цвет машины" class="input" required>
-                    <input type="text" placeholder="Роль" class="input" required>
-            </div>     
-            <div class="container3">
-                <button type="submit" class="gog">ДОБАВИТЬ</button>
-                <button type="submit" class="gog">ИЗМЕНИТЬ</button>
-                <button type="submit" class="gog">УДАЛИТЬ</button>
-            </div>  -->
-
         <div class="container-full" style="margin-top: 100px">
             <div class="row">
                 <div class="col-xs-8">
@@ -123,8 +108,6 @@
                 <button type="button" id="btnCancel" class="btn btn-default">Cancel</button>
             </form>
         </div>
-
-            
 
         </div>
         

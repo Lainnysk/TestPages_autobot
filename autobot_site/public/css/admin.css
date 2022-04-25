@@ -25,7 +25,7 @@ a {
     font-size: 20px;
 }
 
-button {
+button, input {
     background: #2B5378;
 	color: white;
 	width: 80px;
@@ -113,22 +113,6 @@ img {
 
 .align-items-center {
     align-items: center;
-}
-
-input {
-    width:250px;
-	height: 43px;
-	padding-left: 18px;
-	margin: 5px;
-	display: block;
-	margin-left: 60px;
-	margin-top: 40px;
-	box-sizing: border-box;
-	color: white;
-	background: rgba( 0,0,0,.1);
-	border: 1px solid white;
-	opacity: 1;
-    border-radius: 5px;
 }
 
 .maincontainer {
@@ -245,4 +229,14 @@ tr:hover{
 
 .odd{
  background-color:#f5fafe;
+}
+
+#btnUpdateUsers{
+    margin-left: 1250px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    background: #2B5378;;
 }
