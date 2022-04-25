@@ -3,16 +3,6 @@
     padding: 0;
 }
 
-table button {
-    background: #353535;
-	color: white;
-	width: 80px;
-	height: 30px;
-	transition: all 0.5s ease;
-	border-radius: 5px;
-	border: #ffffff;
-}
-
 body {
     font-family: 'Open Sans';
     font-weight: 400;
@@ -35,18 +25,16 @@ a {
     font-size: 20px;
 }
 
-button {
+table button {
     background: #2B5378;
 	color: white;
-	width: 140px;
-	height: 50px;
+	width: 70px;
+	height: 40px;
 	margin-left: 15px;
 	transition: all 0.5s ease;
 	border-radius: 10px;
 	border: #2B5378;
 }
-
-
 
 .text1 {
     position: absolute;
@@ -198,25 +186,14 @@ footer {
     margin-top: 0px;
 }
 
-.grid1{
-    margin-top: 40px;
-}
-
-.grid3{
-    margin-top: 60px;
-}
-
-table{
-	width:1200px;
+#grid2{
+    width:1200px;
 	height:200px;
 	border-style:solid;
 	border-bottom-width:thin;
-    
-	margin:0 auto;
        table-layout:fixed;
        empty-cells:show; 
-       
-       margin:0 auto;
+
        font-size:18px;
        
        color:#353535;
@@ -224,7 +201,23 @@ table{
        border-radius: 10px;
 }
 
+#grid4{
+    margin-top: 60px;
+    top: 100px;
+    width:1200px;
+	height:200px;
+	border-style:solid;
+	border-bottom-width:thin;
 
+       table-layout:fixed;
+       empty-cells:show; 
+       
+       font-size:18px;
+       
+       color:#353535;
+       background-color: #ffffff;
+       border-radius: 10px;
+}
 
 .fi_tr{
 	background:url(img/table_header.png);

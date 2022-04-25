@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Охранник</title>
@@ -10,6 +11,7 @@
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
+
     <body>
         <div class="maincontainer">
             <header id="header" class="header">
@@ -30,7 +32,6 @@
                 <p class="text3">ЗАЯВКИ НА ВЪЕЗД</p>
                 
                 <p class="text4">ПОЛЬЗОВАТЕЛИ</p>
-               
             </div>
             <table class="grid1" id="grid2"></table>
             <table class="grid3" id="grid4"></table>

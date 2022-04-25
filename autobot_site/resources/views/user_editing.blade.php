@@ -25,12 +25,14 @@
                     </nav>
                 </div>
             </header>
+
             <div>
                 <button type="submit" class="back">
                     <a href="http://127.0.0.1:8000/admin"> 🠔 </a>
                 </button>
                 <p class="text2">РЕДАКТИРОВАНИЕ ПОЛЬЗОВАТЕЛЕЙ</p>
             </div>
+            
             <!-- <div class="container1">				
                     <input type="text" placeholder="Фамилия" class="input" required>				
                     <input type="text" placeholder="Имя" class="input" required>
@@ -72,24 +74,30 @@
         </div>
         <div class="dial" id="dialogCreate" style="display: none">
             <form>
+
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" id="nameC">
                 </div>
+
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" class="form-control" id="emailC" />
                 </div>
+
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="text" class="form-control" id="passwordC" />
                 </div>
+
                 <div class="form-group">
                     <label for="role_id">Role ID</label>
                     <input type="text" class="form-control" id="role_idC" />
                 </div>
+
                 <button type="button" id="btnCreateUser" class="btn btn-default">Create</button>
                 <button type="button" id="btnCreateCancel" class="btn btn-default">Cancel</button>
+
             </form>
         </div>
         <div id="dialog" style="display: none">
