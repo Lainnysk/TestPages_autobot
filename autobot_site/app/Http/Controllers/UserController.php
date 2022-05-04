@@ -27,8 +27,9 @@ class UserController extends Controller
         $paginate = DB::table('users')
         ->join('addresses', 'addresses.id_address', '=', 'users.id_address')
         ->join('roles', 'roles.id_role', '=', 'users.id_role')
-        ->join('essences', 'essences.id_essence', '=', 'users.id_essence')->orderBy('users.id_user', 'desc')->paginate($paginateNumber);
+        ->join('essences', 'essences.id_essence', '=', 'users.id_essence')->orderBy($request->input('sortBy') ?? 'users.id_user', $request->input('direction') ?? 'desc')->paginate($paginateNumber);
         
+
         return response()->json(['message' => 'success', 'records' => $paginate->items(), 'total' => $paginate->total()], 200);
     }
 
