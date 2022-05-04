@@ -35,25 +35,25 @@
         <div class="row">
             <div class="col-xs-8">
                 <form class="form-inline">
-                    <!-- <div class="form-group">
-                        <input id="txtName" type="text" placeholder="Name" class="form-control" />
-                        <input id="txtSurname" type="text" placeholder="Surname" class="form-control" />
-                        <input id="txtPatronymic" type="text" placeholder="Patronymic" class="form-control" />
+                    <div class="form-group">
+                        <input id="txtNumCar" type="text" placeholder="Номер машины" class="form-control" />
+                        <!-- <input id="txtSurname" type="text" placeholder="Surname" class="form-control" /> -->
+                        <!-- <input id="txtPatronymic" type="text" placeholder="Patronymic" class="form-control" />
                         <input id="txtPhone_number" type="text" placeholder="Phone number" class="form-control" />
                         <input id="txtTelegram_id" type="text" placeholder="Telegram ID" class="form-control" />
-                        <input id="txtApproved" type="text" placeholder="Approved" class="form-control" />
-                        <input id="txtEmail" type="text" placeholder="Email" class="form-control" />
-                        <input id="txtPassword" type="text" placeholder="Password" class="form-control" />
-                        <input id="txtRole" type="text" placeholder="Role" class="form-control" />
-                    </div> -->
+                        <input id="txtApproved" type="text" placeholder="Approved" class="form-control" /> -->
+                        <input id="txtdateTime" type="text" placeholder="Дата" class="form-control" />
+                        <!-- <input id="txtPassword" type="text" placeholder="Password" class="form-control" />
+                        <input id="txtRole" type="text" placeholder="Role" class="form-control" /> -->
+                    </div>
                     <button id="btnSearch" type="button" class="btn btn-default">Поиск</button>
                     <button id="btnClear" type="button" class="btn btn-default">Очистить</button>
-                    <button type="button" id="btnCreateTestUsers" class="btn btn-default">+5 пользователей</button>
+                    <!-- <button type="button" id="btnCreateTestUsers" class="btn btn-default">+5 </button> -->
                     <input value = "+ *" type="button" id="btnUpdateUsers" class="btn btn-default"/>
                 </form>
             </div>
             <div class="col-xs-4">
-                <button id="btnAdd" type="button" class="btn btn-default pull-right">Создать нового пользователя</button>
+                <button id="btnAdd" type="button" class="btn btn-default pull-right">Создать новую заявку</button>
             </div>
         </div>
         <div class="row" style="margin-top: 10px">
@@ -65,11 +65,11 @@
     <div id="dialogCreate" style="display: none">
         <form>
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="nameC">
+                <label for="num_car">Name</label>
+                <input type="text" class="form-control" id="num_carC">
             </div>
             <div class="form-group">
-                <label for="surname">Surname</label>
+                <label for="dateTime_order">DateTime</label>
                 <input type="text" class="form-control" id="surnameC">
             </div>
             <div class="form-group">
@@ -282,6 +282,21 @@
                 dataSource: '/reg_cars/',
                 sort: true,
                 pager: { limit: 5, sizes: [2, 5, 10, 20] }
+            });
+            $('#btnSearch').on('click', function () {
+                grid.reload({ page: 1, num_car: $('#txtNumCar').val(), dateTime_order: $('#txtdateTime').val()});
+            });
+            $('#btnClear').on('click', function () {
+                $('#id_reg_car').val('');
+                $('#num_car').val('');
+                $('#model').val('');
+                $('#add_info').val('');
+                $('#dateTime_order').val('');
+                $('#comment').val('');
+                $('#approved').val('');
+                $('#id_user').val('');
+                $('#owner').val('');
+                grid.reload({ id_reg_car: '', num_car: '', model: '', add_info: '', dateTime_order: '', comment: '', approved: '', id_user: '', owner: '' });
             });
         });
     </script>
