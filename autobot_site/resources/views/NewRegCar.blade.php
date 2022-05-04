@@ -10,7 +10,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="css/user_editing.css">
+    <link rel="stylesheet" href="css/regcar.css">
 </head>
 
 <body>
@@ -58,7 +58,7 @@
         </div>
         <div class="row" style="margin-top: 10px">
             <div class="col-xs-12">
-                <table id="grid"></table>
+                <table id="grid2"></table>
             </div>
         </div>
     </div>
@@ -189,7 +189,7 @@
                 };
                 $.ajax({ url: '/reg_cars/update', data: record, method: 'POST' })  
                 .done(function () {
-                    alert('Выполнить.');
+                    alert('Выполнено.');
                     grid.reload();
                 })
                 .fail(function () {
@@ -221,12 +221,25 @@
                     grid.reload();
                 })
                 .fail(function () {
-                    alert('Ошибка сохранения.');
+                    alert('Ошибка в отклонении.');
                 });
             }
         }
 
-        let timerId = setInterval(() => {
+        function Deleete(e) {
+                if (confirm('Вы уверены')) {
+                    $.ajax({ url: '/reg_cars/delete', data: { id: e.data.id }, method: 'POST' })
+                        .done(function () {
+                            alert('Выполнено.');
+                            grid.reload();
+                        })
+                        .fail(function () {
+                            alert('Отказ в удалении.');
+                        });
+                }
+            }
+
+            let timerId = setInterval(() => {
 
             var xhr = new XMLHttpRequest()
             xhr.open('GET', 'reg_cars/getCount', true)
@@ -239,39 +252,36 @@
 
             var UsersCount = JSON.parse(xhr.responseText)   
             var newUsersCount = UsersCount.count - grid.count(true)
-            $('#btnUpdateUsers').val("+ " + newUsersCount)
-
+            $('#btnUpdateUsers').val("+" + newUsersCount)
             if (xhr.status === 200) {
                     console.log('result', xhr.responseText)
                 } else {
                     console.log('err', xhr.responseText)
                 }
             }            
-        }, 2000);
-
-        $('#btnUpdateUsers').on('click', function () {
-            grid.reload();
-        });
+            }, 2000);
 
         $(document).ready(function () {
-            grid = $('#grid').grid({
+            grid = $('#grid2').grid({
                 uiLibrary: 'bootstrap',
                 columns: [
-                    { field: 'model', title: 'Марка'},
-                    { field: 'num_car', title: 'Номер машины'},
+                    { field: 'model', title: 'Марка', sortable: true},
+                    { field: 'num_car', title: 'Номер машины', sortable: true},
                     { field: 'dateTime_order', title: 'Дата', sortable: true},
                     { field: 'add_info', title: 'Инфо', sortable: true},
                     { field: 'comment', title: 'Коментарий'},
                     { field: 'id_reg_car', title: 'id машины', hidden: true},
                     { field: 'id_user', title: 'id пользователя', hidden: true},
-                    { field: 'owner', title: 'Собственность'},
-                    { field: 'approved', title: 'Действия', sortable: true},
-                    { title: '', field: 'Edit', width: 34, type: 'icon', icon: 'glyphicon-plus', tooltip: 'Edit', events: { 'click': Dob} },
-                    { title: '', field: 'Delete', width: 34, type: 'icon', icon: 'glyphicon-minus', tooltip: 'Delete', events: { 'click': Del } }
+                    { field: 'owner', title: 'Собственность', sortable: true},
+                    { field: 'approved', title: 'Одобрение', sortable: false},
+                    { title: '', field: '', width: 35, type: 'icon', icon: 'glyphicon-plus', tooltip: 'Одобрение', events: { 'click': Dob} },
+                    { title: '', field: '', width: 35, type: 'icon', icon: 'glyphicon-minus', tooltip: 'Отклонение', events: { 'click': Del } },
+                    { title: '', field: '', width: 35, type: 'icon', icon: 'glyphicon-pencil', tooltip: 'Редактировать', events: { 'click': Dob } },
+                    { title: '', field: '', width: 36, type: 'icon', icon: 'glyphicon-remove', tooltip: 'Удалить', events: { 'click': Deleete } }
                 ],
                 dataSource: '/reg_cars/',
                 sort: true,
-                pager: { limit: 5 }
+                pager: { limit: 5, sizes: [2, 5, 10, 20] }
             });
         });
     </script>

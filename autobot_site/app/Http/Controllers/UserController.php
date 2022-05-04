@@ -168,7 +168,6 @@ class UserController extends Controller
         return response()->json(['message' => 'success'], 200);
     }
 
-
     public function getUsersCount()
     {
         $count = User::query()->count();
