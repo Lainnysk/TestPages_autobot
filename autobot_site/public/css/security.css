@@ -124,7 +124,7 @@ table button {
     letter-spacing: 0.04em;
     color: #FFFFFF;
     margin-top: 50px;
-    margin-left: 250px;
+    margin-left: 200px;
 }
 
 .text4 {
@@ -199,6 +199,10 @@ input {
     font-size: 15px;
 }
 
+.header-nav a{
+    color: #FFFFFF;
+}
+
 #foooter {
     position: absolute;
 	color: white;
@@ -210,7 +214,7 @@ input {
 }
 
 #grid2{
-    width:1200px;
+    width:1000px;
 	height:200px;
 	border-style:solid;
 	border-bottom-width:thin;
@@ -225,7 +229,7 @@ input {
 #grid4{
     margin-top: 60px;
     top: 100px;
-    width:1200px;
+    width:1000px;
 	height:200px;
 	border-style:solid;
 	border-bottom-width:thin;
@@ -261,7 +265,7 @@ tr:hover{
 }
 
 #btnUpdateUsers{
-    margin-left: 1360px;
+    margin-left: 1160px;
     width: 40px;
     height: 40px;
     margin-top: 60px;
@@ -279,4 +283,13 @@ tr:hover{
     letter-spacing: 0.04em;
     border-color: transparent;
     color: #FFFFFF;
+}
+
+.form-group{
+    margin-left: 430px;
+}
+
+.form-group button{
+    margin-top: 10px;
+    margin-left: 90px;
 }

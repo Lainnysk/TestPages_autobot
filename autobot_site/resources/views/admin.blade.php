@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-
     <head>
-        
         <meta charset="UTF-8">
         <title>Администратор</title>
         <link rel="stylesheet" href="css/admin.css">
@@ -12,7 +10,6 @@
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
-    
     <body>
         <div class="maincontainer">
             <header id="header" class="header">
