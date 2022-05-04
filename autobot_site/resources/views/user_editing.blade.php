@@ -93,6 +93,9 @@
                 <input type="text" class="form-control" id="approvedC">
             </div>
 
+        </div>
+        
+        <div class="footer">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="emailC" />

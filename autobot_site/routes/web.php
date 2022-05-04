@@ -33,12 +33,13 @@ Route::get('user_editing', function () {
     return view('user_editing');
 })->name('user_editing');
 
-Route::post('users/update', [UserController::class, 'update'])->middleware('role:admin');
-Route::post('users/delete', [UserController::class, 'destroy'])->middleware('role:admin');
-Route::post('users/create', [UserController::class, 'store'])->middleware('role:admin');
-Route::get('users/index', [UserController::class, 'index'])->middleware('role:admin');
-Route::get('users/testData', [UserController::class, 'addFiveRandomUsers'])->middleware('role:admin');
-Route::get('users/getCount', [UserController::class, 'getUsersCount'])->middleware('role:admin');
+Route::post('users/update', [UserController::class, 'update']);
+Route::post('users/delete', [UserController::class, 'destroy']);
+Route::post('users/create', [UserController::class, 'store']);
+Route::get('users/index', [UserController::class, 'index']);
+Route::get('users/testData', [UserController::class, 'addFiveRandomUsers']);
+Route::get('users/getCount', [UserController::class, 'getUsersCount']);
+Route::get('reg_cars/getCount', [RegCarsController::class, 'getCarsCount']);
 
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
@@ -46,6 +47,9 @@ Route::get('admin', function(){
     return view('admin');
 })->name("index")->middleware('role:admin');
 
+Route::get('security', function(){
+    return view('security');
+})->name("security");
 
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -61,7 +65,6 @@ Route::get('NewRegCar', function () {
 Route::apiResource('reg_cars', RegCarsController::class)->middleware('role');
 
 Route::post('reg_cars/update', [RegCarsController::class, 'update'])->middleware('role');
-
 
 
 Route::get('/RegCars', function () {

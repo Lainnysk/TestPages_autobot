@@ -28,7 +28,7 @@ class AuthController extends Controller
             elseif($currentRole == Role::ROLE_GUARD)
             {
                 //add security route
-                return redirect(route('welcome'));
+                return redirect(route('security'));
             }
         }
         else
