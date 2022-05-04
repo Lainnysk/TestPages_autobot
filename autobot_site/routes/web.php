@@ -29,6 +29,10 @@ Route::get('welcome', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('user_editing', function () {
+    return view('user_editing');
+})->name('user_editing');
+
 Route::post('users/update', [UserController::class, 'update']);
 Route::post('users/delete', [UserController::class, 'destroy']);
 Route::post('users/create', [UserController::class, 'store']);
