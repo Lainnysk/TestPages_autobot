@@ -22,7 +22,8 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $paginateNumber = $request->input('limit') ?? 5;
+        $controller = new UserController();
+        $paginateNumber = $request->input('limit') ?? json_decode($controller->getUsersCount()->content())->count;
         
         $paginate = DB::table('users')
         ->join('addresses', 'addresses.id_address', '=', 'users.id_address')

@@ -41,6 +41,10 @@ Route::get('users/testData', [UserController::class, 'addFiveRandomUsers']);
 Route::get('users/getCount', [UserController::class, 'getUsersCount']);
 Route::get('reg_cars/getCount', [RegCarsController::class, 'getCarsCount']);
 
+Route::get('usersList', function() {
+    return view("usersList");
+});
+
 Route::post('login', [AuthController::class, 'login'])->name("login");
 
 Route::get('admin', function(){
