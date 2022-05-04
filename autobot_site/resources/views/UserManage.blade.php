@@ -311,7 +311,7 @@
                 grid.reload();
             });
             $('#btnSearch').on('click', function () {
-                grid.reload({ name: $('#txtName').val(), surname: $('#txtSurname').val(), patronymic: $('#txtPatronymic').val(), phone_number: $('#txtPhone_number').val(), telegram_id: $('#txtTelegram_id').val(), approved: $('#txtApproved').val(), email: $('#txtEmail').val(), role_id: $('#txtRole_id').val() });
+                grid.reload({ page: 1, name: $('#txtName').val(), surname: $('#txtSurname').val(), patronymic: $('#txtPatronymic').val(), phone_number: $('#txtPhone_number').val(), telegram_id: $('#txtTelegram_id').val(), approved: $('#txtApproved').val(), email: $('#txtEmail').val(), role_id: $('#txtRole_id').val() });
             });
             $('#btnClear').on('click', function () {
                 $('#id_user').val('');
