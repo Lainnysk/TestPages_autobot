@@ -57,6 +57,14 @@ Route::get('UserManage', function () {
     return view('UserManage');
 })->name('userManage');
 
+Route::get('otchet', function () {
+    return view('otchet');
+})->name('otchet');
+
+Route::get('otchetAuto', function () {
+    return view('otchetAuto');
+})->name('otchetAuto');
+
 Route::get('NewRegCar', function () {
     return view('NewRegCar');
 })->name('newregcar');

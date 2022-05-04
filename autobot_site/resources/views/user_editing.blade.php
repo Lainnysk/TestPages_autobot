@@ -35,17 +35,17 @@
         <div class="row">
             <div class="col-xs-8">
                 <form class="form-inline">
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <input id="txtName" type="text" placeholder="Name" class="form-control" />
-                        <input id="txtSurname" type="text" placeholder="Surname" class="form-control" />
+                        <!-- <input id="txtSurname" type="text" placeholder="Surname" class="form-control" />
                         <input id="txtPatronymic" type="text" placeholder="Patronymic" class="form-control" />
                         <input id="txtPhone_number" type="text" placeholder="Phone number" class="form-control" />
                         <input id="txtTelegram_id" type="text" placeholder="Telegram ID" class="form-control" />
-                        <input id="txtApproved" type="text" placeholder="Approved" class="form-control" />
+                        <input id="txtApproved" type="text" placeholder="Approved" class="form-control" /> -->
                         <input id="txtEmail" type="text" placeholder="Email" class="form-control" />
-                        <input id="txtPassword" type="text" placeholder="Password" class="form-control" />
-                        <input id="txtRole" type="text" placeholder="Role" class="form-control" />
-                    </div> -->
+                        <!-- <input id="txtPassword" type="text" placeholder="Password" class="form-control" />
+                        <input id="txtRole" type="text" placeholder="Role" class="form-control" /> -->
+                    </div>
                     <button id="btnSearch" type="button" class="btn btn-default">Поиск</button>
                     <button id="btnClear" type="button" class="btn btn-default">Очистить</button>
                     <button type="button" id="btnCreateTestUsers" class="btn btn-default">+5 пользователей</button>
@@ -93,9 +93,6 @@
                 <input type="text" class="form-control" id="approvedC">
             </div>
 
-        </div>
-        
-        <div class="footer">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" class="form-control" id="emailC" />
@@ -168,7 +165,7 @@
         </div>
     
 
-    <script type="text/javascript">
+        <script type="text/javascript">
         $.ajaxSetup({
                 headers : {
                     'X-CSRF-Token' : "{{ csrf_token() }}"
@@ -339,7 +336,7 @@
                 grid.reload();
             });
             $('#btnSearch').on('click', function () {
-                grid.reload({ name: $('#txtName').val(), surname: $('#txtSurname').val(), patronymic: $('#txtPatronymic').val(), phone_number: $('#txtPhone_number').val(), telegram_id: $('#txtTelegram_id').val(), approved: $('#txtApproved').val(), email: $('#txtEmail').val(), role_id: $('#txtRole_id').val() });
+                grid.reload({ page: 1, name: $('#txtName').val(), surname: $('#txtSurname').val(), patronymic: $('#txtPatronymic').val(), phone_number: $('#txtPhone_number').val(), telegram_id: $('#txtTelegram_id').val(), approved: $('#txtApproved').val(), email: $('#txtEmail').val(), role_id: $('#txtRole_id').val() });
             });
             $('#btnClear').on('click', function () {
                 $('#id_user').val('');
