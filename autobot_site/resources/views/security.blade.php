@@ -139,6 +139,10 @@
             }            
             }, 2000);
 
+            $('#btnUpdateUsers').on('click', function () {
+                grid.reload();
+            });
+
         $(document).ready(function () {
             grid = $('#grid2').grid({
                 uiLibrary: 'bootstrap',
@@ -170,7 +174,7 @@
                         'X-CSRF-Token' : "{{ csrf_token() }}"
                     }
                 });
-            var grid, dialog, dialogCreate;
+            var grid2, dialog, dialogCreate;
             function Edit(e) {
                 $('#id').val(e.data.id);
                 $('#name').val(e.data.record.name);
@@ -189,7 +193,7 @@
                 $.ajax({ url: '/users/create', data: record , method: 'POST' })
                     .done(function () {
                         dialogCreate.close();
-                        grid.reload();
+                        grid2.reload();
                     })
                     .fail(function () {
                         alert('Failed to save.');
@@ -207,7 +211,7 @@
                 $.ajax({ url: '/users/update', data: record , method: 'POST' })
                     .done(function () {
                         dialog.close();
-                        grid.reload();
+                        grid2.reload();
                     })
                     .fail(function () {
                         alert('Failed to save.');
@@ -218,7 +222,7 @@
                 if (confirm('Are you sure?')) {
                     $.ajax({ url: '/users/delete', data: { id: e.data.id }, method: 'POST' })
                         .done(function () {
-                            grid.reload();
+                            grid2.reload();
                         })
                         .fail(function () {
                             alert('Failed to delete.');
@@ -226,7 +230,7 @@
                 }
             }
             $(document).ready(function () {
-                grid = $('#grid4').grid({
+                grid2 = $('#grid4').grid({
                     primaryKey: 'id',
                     dataSource: '/users/index',
                     uiLibrary: 'bootstrap',
