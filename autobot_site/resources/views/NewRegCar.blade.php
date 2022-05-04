@@ -268,7 +268,6 @@
                     { field: 'approved', title: 'Действия', sortable: true},
                     { title: '', field: 'Edit', width: 34, type: 'icon', icon: 'glyphicon-plus', tooltip: 'Edit', events: { 'click': Dob} },
                     { title: '', field: 'Delete', width: 34, type: 'icon', icon: 'glyphicon-minus', tooltip: 'Delete', events: { 'click': Del } }
-                    
                 ],
                 dataSource: '/reg_cars/',
                 sort: true,
@@ -276,6 +275,5 @@
             });
         });
     </script>
-    
 </body>
 </html>

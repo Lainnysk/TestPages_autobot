@@ -76,6 +76,7 @@ class RegCarsController extends Controller
         $RegCars->setCommentIfNotEmpty($request->getComment());
         $RegCars->setApprovedIfNotEmpty($request->getApproved());
         
+        
 
         $RegCars->save();
 
