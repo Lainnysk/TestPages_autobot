@@ -29,6 +29,7 @@ class UserController extends Controller
         ->join('roles', 'roles.id_role', '=', 'users.id_role')
         ->join('essences', 'essences.id_essence', '=', 'users.id_essence')->orderBy($request->input('sortBy') ?? 'users.id_user', $request->input('direction') ?? 'desc')->paginate($paginateNumber);
         
+        
 
         return response()->json(['message' => 'success', 'records' => $paginate->items(), 'total' => $paginate->total()], 200);
     }
