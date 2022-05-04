@@ -21,6 +21,11 @@ class RegCarsController extends Controller
     {
         $paginate = RegCars::query()->paginate($request->input('limit'));
 
+        // $paginate = DB::table('reg_cars')
+        // ->join('addresses', 'addresses.id_address', '=', 'users.id_address')
+        // ->join('roles', 'roles.id_role', '=', 'users.id_role')
+        // ->join('essences', 'essences.id_essence', '=', 'users.id_essence')->orderBy($request->input('sortBy') ?? 'users.id_user', $request->input('direction') ?? 'desc')->paginate($paginateNumber);
+
         return response()->json(['message' => 'success', 'records' => $paginate->items(), 'total' => $paginate->total()], 200);
     }
     /**
@@ -44,6 +49,12 @@ class RegCarsController extends Controller
         $RegCars->save();
         
         return response()->json(['message' => 'success', 'records' => $RegCars], 200);
+    }
+
+    public function getCarsCount()
+    {
+        $count = RegCars::query()->count();
+        return response()->json(['message' => 'success', 'count' => $count], 200);
     }
 
     /**

@@ -14,7 +14,7 @@ body {
 #grid2{ 
     margin-left: 200px;
     width: 1200px; 
-    margin-top: 100px; 
+    margin-top: 20px; 
     height:200px; 
     border: 0px; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -38,7 +38,8 @@ body {
 #grid4{ 
     margin-left: 200px;
     width: 1200px; 
-    margin-top: 100px; 
+    margin-top: 100px;
+    margin-bottom: 70px; 
     height:200px; 
     border: 0px; 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -213,14 +214,12 @@ input {
 	height:200px;
 	border-style:solid;
 	border-bottom-width:thin;
-       table-layout:fixed;
-       empty-cells:show; 
-
-       font-size:18px;
-       
-       color:#353535;
-       background-color: #ffffff;
-       border-radius: 10px;
+    table-layout:fixed;
+    empty-cells:show; 
+    font-size:18px;
+    color:#353535;
+    background-color: #ffffff;
+    border-radius: 10px;
 }
 
 #grid4{
@@ -259,4 +258,25 @@ tr:hover{
 
 .odd{
  background-color:#f5fafe;
+}
+
+#btnUpdateUsers{
+    margin-left: 1360px;
+    width: 40px;
+    height: 40px;
+    margin-top: 60px;
+    background: #2B5378;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    text-align: center;
+    letter-spacing: 0.04em;
+    border-color: transparent;
+    color: #FFFFFF;
 }

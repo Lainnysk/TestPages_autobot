@@ -130,13 +130,7 @@
 
             var UsersCount = JSON.parse(xhr.responseText)   
             var newUsersCount = UsersCount.count - grid.count(true)
-            if (newUsersCount < 1){
-                $('#btnUpdateUsers').val("+ 0")
-            }
-            else
-            {
-                $('#btnUpdateUsers').val("+" + newUsersCount)
-            }
+            $('#btnUpdateUsers').val("+" + newUsersCount)
             if (xhr.status === 200) {
                     console.log('result', xhr.responseText)
                 } else {
@@ -157,26 +151,18 @@
                     { field: 'id_reg_car', title: 'id машины', hidden: true},
                     { field: 'id_user', title: 'id пользователя', hidden: true},
                     { field: 'owner', title: 'Собственность'},
-                    { field: 'approved', title: 'Действия', sortable: true},
-                    { title: '', field: '', width: 34, type: 'icon', icon: 'glyphicon-plus', tooltip: 'Одобрение', events: { 'click': Dob} },
-                    { title: '', field: '', width: 34, type: 'icon', icon: 'glyphicon-minus', tooltip: 'Отклонение', events: { 'click': Del } },
-                    { title: '', field: '', width: 34, type: 'icon', icon: 'glyphicon-pencil', tooltip: 'Редактировать', events: { 'click': Dob } },
-                    { title: '', field: '', width: 34, type: 'icon', icon: 'glyphicon-remove', tooltip: 'Удалить', events: { 'click': Deleete } }
+                    { field: 'approved', title: 'Одобрение', sortable: true},
+                    { title: '', field: '', width: 35, type: 'icon', icon: 'glyphicon-plus', tooltip: 'Одобрение', events: { 'click': Dob} },
+                    { title: '', field: '', width: 35, type: 'icon', icon: 'glyphicon-minus', tooltip: 'Отклонение', events: { 'click': Del } },
+                    { title: '', field: '', width: 35, type: 'icon', icon: 'glyphicon-pencil', tooltip: 'Редактировать', events: { 'click': Dob } },
+                    { title: '', field: '', width: 36, type: 'icon', icon: 'glyphicon-remove', tooltip: 'Удалить', events: { 'click': Deleete } }
                 ],
                 dataSource: '/reg_cars/',
                 sort: true,
-                pager: { limit: 5 }
+                pager: { limit: 5, sizes: [2, 5, 10, 20] }
             });
         });
     </script>
-
-
-    
-
-
-
-
-
 
     <script type="text/javascript">
             $.ajaxSetup({
@@ -249,7 +235,7 @@
                         { field: 'name', title: 'Имя', sortable: true },
                         { field: 'email', title: 'Почта', sortable: true },
                         { field: 'password', title: 'Пароль', sortable: true },
-                        { field: 'id_role', width:50, align:'center', title: 'Роль', sortable: false},
+                        { field: 'id_role', width:55, align:'center', title: 'Роль', sortable: false},
                     ],
                     pager: { limit: 5, sizes: [2, 5, 10, 20] }
                 });
