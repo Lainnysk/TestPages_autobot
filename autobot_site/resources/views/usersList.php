@@ -53,8 +53,26 @@ use Illuminate\Http\Request;
                         default:
                             echo "Неизвестно";
                             break;
-                    }}
-                    else echo $attribute; ?></td>
+                    }
+                }
+                elseif($key == "name_role"){
+                    switch($attribute){
+                        case "liver":
+                            echo "Житель";
+                            break;
+                        case "admin":
+                            echo "Администратор";
+                            break;
+                        case "guard":
+                            echo "Охранник";
+                            break;
+                        default:
+                            echo "Неизвестно";
+                            break;
+                    }
+                }
+                else echo $attribute; 
+                ?></td>
             <?php endforeach;?>
         </tr>
     <?php endforeach;?>
