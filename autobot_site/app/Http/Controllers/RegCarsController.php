@@ -8,6 +8,7 @@ use App\Http\Requests\RegCarsRequestUpdate;
 use App\Models\RegCars;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RegCarsController extends Controller
 {
@@ -19,7 +20,10 @@ class RegCarsController extends Controller
      */
     public function index(Request  $request)
     {
-        $paginate = RegCars::query()->paginate($request->input('limit'));
+        $paginateNumber = $request->input('limit') ?? 5;
+
+        $paginate = DB::table('reg_cars')
+        ->join('users', 'users.id_user', '=', 'reg_cars.id_user')->orderBy($request->input('sortBy') ?? 'reg_cars.id_reg_car', $request->input('direction') ?? 'desc')->paginate($paginateNumber);;
 
         // $paginate = DB::table('reg_cars')
         // ->join('addresses', 'addresses.id_address', '=', 'users.id_address')
@@ -87,6 +91,7 @@ class RegCarsController extends Controller
         $RegCars->setCommentIfNotEmpty($request->getComment());
         $RegCars->setApprovedIfNotEmpty($request->getApproved());
         
+
 
         $RegCars->save();
 
