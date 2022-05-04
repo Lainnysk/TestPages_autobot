@@ -49,7 +49,7 @@ class UserController extends Controller
             );
             $essence->save();
         }
-        elseif(User::query()->where('id_essence', Essence::getEssenceByEmail($request->getEmail()))->first() == null)
+        elseif(User::query()->where('id_essence', Essence::getEssenceByEmail($request->getEmail())->getId())->first() == null)
         {
             $essence = Essence::getEssenceByEmail($request->getEmail());
         }
