@@ -18,14 +18,16 @@
             <header id="header" class="header">
                 <div class="container d-flex justify-content-between align-items-center">
                     <div class="logo">
-                        <a href="http://127.0.0.1:8000/">
+                        <a href="/">
                             <img src="img/Autobot.png" alt="logo" width="50" height="50">
                         </a>
                     </div>
                     <p class="text1">«Автобот»</p>
                     <nav class="header-nav">
-                        <a href="http://127.0.0.1:8000/user_editing">Редактироваие пользователя      |</a>
-                        <a href="http://127.0.0.1:8000/">  Выход</a>
+                        <a href="/user_editing">Редактироваие пользователя      |</a>
+                        <a href="/otchet">Отчёт заявок пользователей      |</a>
+                        <a href="/otchetAuto">Отчёт заявок на въезд      |</a>
+                        <a href="/">  Выход</a>
                     </nav>
                 </div>
             </header>
