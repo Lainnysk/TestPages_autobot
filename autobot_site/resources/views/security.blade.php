@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Охранник</title>
@@ -10,6 +11,7 @@
         <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
+
     <body>
         <div class="maincontainer">
             <header id="header" class="header">
@@ -247,7 +249,7 @@
                         { field: 'name', title: 'Имя', sortable: true },
                         { field: 'email', title: 'Почта', sortable: true },
                         { field: 'password', title: 'Пароль', sortable: true },
-                        { field: 'id_role', width:50, align:'center', title: 'Роль', sortable: true },
+                        { field: 'id_role', width:50, align:'center', title: 'Роль', sortable: false},
                     ],
                     pager: { limit: 5, sizes: [2, 5, 10, 20] }
                 });
