@@ -1,0 +1,540 @@
+[33mcommit 740cc5d82f32aa6177345d1d7cfb11dfc875250d[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Wed May 11 16:42:54 2022 +0300
+
+    test Pages
+
+[33mcommit 43f6dfd6e6473b6daf2358d9c199a5f31b1daa28[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed May 11 12:09:53 2022 +0300
+
+    fix fliter approved in UserController
+
+[33mcommit a84418e3688fad5c50730d056408004c3b9bcda8[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Fri May 6 15:28:01 2022 +0300
+
+    messages to utf8
+
+[33mcommit f194789269fb33a59ea6adb85d710dc420cb4de4[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Fri May 6 15:21:21 2022 +0300
+
+    messages to utf8
+
+[33mcommit 3720170ac1bc8d69a8346deb97f31da25bd1a77e[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Fri May 6 15:18:48 2022 +0300
+
+    add messages insersts to lara.sql
+
+[33mcommit d82e1f47ad312d3dce92117c04da93c93bd899bb[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Fri May 6 14:23:37 2022 +0300
+
+    add lara.sql
+
+[33mcommit 5babe882143895d834dc5bb353123a2a9568eb0a[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Wed May 4 19:22:06 2022 +0300
+
+    add user report filter
+
+[33mcommit 31b92a38e3612aa3e3b2f7c4fe1d9b2ece9f3868[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed May 4 18:53:13 2022 +0300
+
+    add filter and rename out data in usersList
+
+[33mcommit 8af55fec75e5935168f85915d4f5b292720599b7[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed May 4 18:21:08 2022 +0300
+
+    add usersList
+
+[33mcommit 96d29902d62d2c19b6e9b7bebd9133e6fb8442f8[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 15:05:05 2022 +0300
+
+    фикс охранника
+
+[33mcommit 0f4cd2fe6adbed14d8ba9b17b8adff5b68154d70[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 14:39:22 2022 +0300
+
+    фикс авторизации
+
+[33mcommit 408a6bbb9937a37ae429f6881b35fe1679dbfa1a[m
+Merge: 585457d eb0c328
+Author: Horned Dingo <svita2003@mail.ru>
+Date:   Wed May 4 14:29:30 2022 +0300
+
+    Merge branch 'designers' of https://github.com/Ikriler/Telegram_AutoBot into main
+
+[33mcommit 585457d8372d7632e980dd67cb8707dd0a36e41a[m
+Author: Horned Dingo <svita2003@mail.ru>
+Date:   Wed May 4 14:29:15 2022 +0300
+
+    security 5
+
+[33mcommit eb0c328caa6879c4613fa01362b2a6177bd11e06[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 14:02:48 2022 +0300
+
+    отчёты
+
+[33mcommit 97ff8fbe1f55bf03f84eb47fd33219287c0581b1[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 12:57:07 2022 +0300
+
+    поиск заявок
+
+[33mcommit ce4921bc03fdb1078fc3e7a9e7e8a16095256247[m
+Merge: 00edb61 60b2538
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 11:29:57 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ikriler/Telegram_AutoBot into designers
+
+[33mcommit 00edb614ea788385fcfbebb162eb68856065003f[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 11:29:41 2022 +0300
+
+    сортировки сделаны
+
+[33mcommit 60b25381f6ca02e96557a964347cfa687009fb83[m
+Merge: 82c35b8 ff5f0f8
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed May 4 11:26:45 2022 +0300
+
+    add search example
+
+[33mcommit 82c35b8d3f62d02786aeb7d12847cd7afefd9765[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed May 4 11:25:58 2022 +0300
+
+    add search example
+
+[33mcommit ff5f0f8f3e37268e3385c4fd264325e8f8fcef0a[m
+Author: Horned Dingo <svita2003@mail.ru>
+Date:   Wed May 4 10:33:57 2022 +0300
+
+    security 4
+
+[33mcommit abd6b95c10cada895e4e690e940f9b683b40b91e[m
+Merge: 8f19190 f65165f
+Author: Horned Dingo <svita2003@mail.ru>
+Date:   Wed May 4 10:29:52 2022 +0300
+
+    Merge branch 'designers' of https://github.com/Ikriler/Telegram_AutoBot into main
+
+[33mcommit 8f19190c7d93d6630d7547a7afed926031300a2f[m
+Author: Horned Dingo <svita2003@mail.ru>
+Date:   Wed May 4 10:28:28 2022 +0300
+
+    security 3
+
+[33mcommit f65165f076e74379d0d648f4c49dfc98c9f1b655[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 10:25:55 2022 +0300
+
+    сортировка заявок на въезд
+
+[33mcommit 67e5aee700fec1f0ccd4c7e624f8be88c68c852a[m
+Merge: 8596d34 30ac7d0
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 09:51:31 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ikriler/Telegram_AutoBot into designers
+
+[33mcommit 8596d348f506fa3041e923a56f49209c122631df[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 09:51:27 2022 +0300
+
+    изменения в редактировании пользователя1
+
+[33mcommit 453603dea59705460bfe7022afb7ba4440e5adbd[m
+Merge: 765b1fd 30ac7d0
+Author: Horned Dingo <svita2003@mail.ru>
+Date:   Wed May 4 09:44:51 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ikriler/Telegram_AutoBot into main
+
+[33mcommit 765b1fd4d9c0d6b678e251e0de5b2efb05c4a806[m
+Merge: da135c2 0feb895
+Author: Horned Dingo <svita2003@mail.ru>
+Date:   Wed May 4 09:44:48 2022 +0300
+
+    security 2
+
+[33mcommit 30ac7d018838c120a35fa78ad32c09bda6fb89a7[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed May 4 09:42:21 2022 +0300
+
+    add security redirect
+
+[33mcommit 174962475d868ff01649ec48c9152c02a8a7278a[m
+Merge: 0fcf413 0feb895
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 09:32:12 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ikriler/Telegram_AutoBot into designers
+
+[33mcommit 0fcf413bac01ebbdc62809831ab2bcbf44bfc9f1[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Wed May 4 09:31:06 2022 +0300
+
+    изменения в редактировании пользователя
+
+[33mcommit da135c2e5a499f44094a02c0779173f097b72dab[m
+Author: Horned Dingo <svita2003@mail.ru>
+Date:   Wed May 4 09:25:41 2022 +0300
+
+    security
+
+[33mcommit 0feb8954eb9ecf5859310ad291b3453424a9727c[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed May 4 09:19:28 2022 +0300
+
+    add sort
+
+[33mcommit 3ac99da7dc0687410039b424dd9a6a0871ecf24a[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed May 4 08:53:46 2022 +0300
+
+    min fix store in UserController
+
+[33mcommit 1258f8a3236494341d9d6d6c227b159d9c917741[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Tue May 3 23:30:23 2022 +0300
+
+    новые изменения на сайте3
+
+[33mcommit bfb4c3def2cbd04a8061d4ae7e5d0b18bb934459[m
+Merge: a8e6a6a 4769ba0
+Author: Horned Dingo <svita2003@mail.ru>
+Date:   Tue Apr 26 02:15:40 2022 +0300
+
+    новые изменения 3
+
+[33mcommit d2ce7af995f1cf8e9a3e7e9aa61afba38f1bd752[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Tue Apr 26 02:14:22 2022 +0300
+
+    новые изменения на сайте2
+
+[33mcommit 3ddf5e727db1c43720de83924f41f9878904183f[m
+Merge: 5c0571f a8e6a6a
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Tue Apr 26 02:13:36 2022 +0300
+
+    новые изменения на сайте
+
+[33mcommit 5c0571f72fb3e78670b110812467b2b2626ff250[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Mon Apr 25 21:36:48 2022 +0300
+
+    старый результат
+
+[33mcommit a8e6a6a7e53d249f35515796debb338581a229de[m[33m ([m[1;31morigin/regUser[m[33m)[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed Apr 20 13:37:21 2022 +0300
+
+    fix controller
+
+[33mcommit d2e48b7431f1bc014388c44932fd5138cde3c194[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed Apr 20 12:42:03 2022 +0300
+
+    min fix user controller update
+
+[33mcommit 270be946c6831298d41c6c4bd30f356457107ba3[m
+Merge: 6c89210 1018cda
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 19 23:40:21 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ikriler/Telegram_AutoBot_Test
+
+[33mcommit 6c89210f4deba7db9475ed7f26cbd36c800166be[m
+Merge: e2efc66 67a7640
+Author: Ilya Gorev <69753376+Ikriler@users.noreply.github.com>
+Date:   Tue Apr 19 23:34:50 2022 +0300
+
+    Merge pull request #5 from Fsimashevskiy/regCar
+    
+    Reg car
+
+[33mcommit 67a7640dae192a830d38b49073a6e5fa65b77486[m
+Author: Fsimashevskiy <82530940+Fsimashevskiy@users.noreply.github.com>
+Date:   Tue Apr 19 22:47:05 2022 +0300
+
+    Create NewRegCar.blade.php
+
+[33mcommit e23da0231de2a5a4be160b7980908aa6ef0c24f3[m
+Author: Fsimashevskiy <82530940+Fsimashevskiy@users.noreply.github.com>
+Date:   Tue Apr 19 22:44:46 2022 +0300
+
+    Update admin.blade.php
+
+[33mcommit 9e6ad2ff6c9896093aa0dce36770fbed1e3481d4[m
+Author: Fsimashevskiy <82530940+Fsimashevskiy@users.noreply.github.com>
+Date:   Tue Apr 19 22:41:09 2022 +0300
+
+    Update web.php
+
+[33mcommit 1018cda7d5bf669a3755fa927d1315f2c133da23[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Tue Apr 19 18:21:34 2022 +0300
+
+    fix tg bot, btn users
+
+[33mcommit 1dbfca23cb2f0ce599769eeeaa34f1aa4edaa796[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Tue Apr 19 17:28:13 2022 +0300
+
+    btn new users
+
+[33mcommit 4769ba034dd5e9c1183c22746587762209dc0e15[m
+Merge: 1df3ac5 e2efc66
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Thu Apr 14 03:27:17 2022 +0300
+
+    Merge branch 'designers' of https://github.com/Ikriler/Telegram_AutoBot into designers
+
+[33mcommit 1df3ac522be50c843067d54f58df45fa7a4e4869[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Thu Apr 14 03:25:58 2022 +0300
+
+    обновлённые страницы: охранника, админа и редактирования пользователя
+
+[33mcommit e2efc668aa7ca60892093572b833ab5a2fe12501[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Tue Apr 12 22:27:07 2022 +0300
+
+    table user manage ok
+
+[33mcommit e58bc5e91f7eb300d94b7ba7e2aa8a752fcc1e11[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 22:19:22 2022 +0300
+
+    min fix
+
+[33mcommit c48258daaf942e23951e7af9bec08c89269f61b2[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 21:45:14 2022 +0300
+
+    user telegram_id can be null
+
+[33mcommit 29b8e57b3c4d335f7bae4c5597ed28fb6e97b261[m
+Merge: 122bf86 ef139b2
+Author: eduardkutermin@gmail.com <eduardkutermin@gmail.com>
+Date:   Tue Apr 12 21:22:37 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ikriler/Telegram_AutoBot
+
+[33mcommit 122bf863fecb2f033d931792851d5a67602208ad[m
+Author: eduardkutermin@gmail.com <eduardkutermin@gmail.com>
+Date:   Tue Apr 12 21:22:31 2022 +0300
+
+    add RegCars generation
+
+[33mcommit ef139b25ad7fd8f861a62256361c62eb7702e6ea[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 21:12:38 2022 +0300
+
+    fix edit user
+
+[33mcommit 28a74c3cf1795634e0e1bef78952446158110a24[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Tue Apr 12 20:52:23 2022 +0300
+
+    fix edit table
+
+[33mcommit db7c4895d36d98d60dbdf9c27a09db6b9d1714d6[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 20:40:48 2022 +0300
+
+    min fix
+
+[33mcommit 8863876c6723e07f84af8bcf145878a2291e4def[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Tue Apr 12 20:27:50 2022 +0300
+
+    fix role
+
+[33mcommit f19f5aab76be531330f16467af37546ef9e6f155[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 20:25:02 2022 +0300
+
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+[33mcommit bca1b4e5a20dbfacd434900b6c4c1acf87742f40[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 20:21:41 2022 +0300
+
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+[33mcommit 2fe3372a25aa7346a7cc6ac9845255370a27f34a[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Tue Apr 12 20:08:11 2022 +0300
+
+    work with table
+
+[33mcommit eeee9649fb67122cc167ca2e62f2684b1aadc36b[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 20:05:12 2022 +0300
+
+    min fix
+
+[33mcommit 3762d498555aae85aba6f64d7ca1c8c150f94e29[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 19:44:01 2022 +0300
+
+    min fix
+
+[33mcommit ac09d0afa05f1ee996d785f62250e291d1c860be[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 19:43:46 2022 +0300
+
+    min fix
+
+[33mcommit df2490acfec052f1207c5968298a5af205b8d7c9[m
+Merge: 7c71368 599c440
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Tue Apr 12 19:35:06 2022 +0300
+
+    fix user manage table
+
+[33mcommit 7c71368c009a8e94d177328594e8e485090f89ec[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Tue Apr 12 19:32:07 2022 +0300
+
+    fix user manage table
+
+[33mcommit 599c440f9e570076c83ba0ac1b1e373ecfbe600c[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 19:30:44 2022 +0300
+
+    refactor store user
+
+[33mcommit d35bdae12099be83d8d08bfd62909a991df56edd[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 18:03:32 2022 +0300
+
+    min fix
+
+[33mcommit 4ffed0cf56b1eff7c005adddc01f681bdf230a77[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 17:03:10 2022 +0300
+
+    add generate command
+
+[33mcommit 2c5b71a730c65acc3665dc50edc073f9002d1038[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 15:48:54 2022 +0300
+
+    fix roleSeeder
+
+[33mcommit 5bfcbc42c75fb27e6343f7d08f1afac2cc5590d3[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Tue Apr 12 15:45:21 2022 +0300
+
+    fix roleSeeder
+
+[33mcommit 91292fe916e23b4a13c292117563a5a9afb5a0bc[m
+Merge: 0419c54 97cc6c8
+Author: Ilya Gorev <69753376+Ikriler@users.noreply.github.com>
+Date:   Sat Apr 9 11:10:39 2022 +0300
+
+    Merge pull request #3 from Ikriler/designers
+    
+    таблицы админа
+
+[33mcommit 97cc6c8a8d1ba1f28037b627a40e4551c8e5672c[m
+Author: BradiTorn <islam.kuliev123@gmail.com>
+Date:   Sat Apr 9 05:45:19 2022 +0300
+
+    таблицы админа
+
+[33mcommit 0419c5495d5616c33945c8fd12929e305efb0c40[m
+Author: Alexander <sasha22@gmail.com>
+Date:   Thu Apr 7 19:20:52 2022 +0300
+
+    восстановлена работоспособность
+
+[33mcommit 21a673e136072bd87a8162eb5cc93531ad2b9680[m
+Merge: 1ecd957 8a08ada
+Author: Fairylaw228 <99873818+Fairylaw228@users.noreply.github.com>
+Date:   Thu Apr 7 19:04:01 2022 +0300
+
+    Merge pull request #2 from Ikriler/regCar
+    
+    Reg car
+
+[33mcommit 8a08adaa48ab8c463c61691aef28f3b736849290[m
+Merge: 95532d7 1ecd957
+Author: Fairylaw228 <isip_a.yu.ivanov@mpt.ru>
+Date:   Wed Apr 6 23:57:15 2022 +0300
+
+    Merge branch 'main' of https://github.com/Ikriler/Telegram_AutoBot into regCar
+
+[33mcommit 95532d71c87cad3cf996f3bb484b870b7a460afd[m
+Author: Fairylaw228 <isip_a.yu.ivanov@mpt.ru>
+Date:   Wed Apr 6 23:27:56 2022 +0300
+
+    изменения в боту, добавлено отправление сообщений для регистрации машин
+
+[33mcommit 251538387007519625527796bc1741c88fb8cf4c[m
+Author: Fairylaw228 <isip_a.yu.ivanov@mpt.ru>
+Date:   Wed Apr 6 22:44:12 2022 +0300
+
+    Изменения бота, довавлены сообщения для машин и запись их
+
+[33mcommit 1ecd957694ffb412907be69f3d549cae24624e38[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Wed Apr 6 18:26:47 2022 +0300
+
+    fix userWel site table
+
+[33mcommit 2648de2393eb59a5fef02302d56003ddd77acef1[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed Apr 6 18:14:19 2022 +0300
+
+    fix user request
+
+[33mcommit 931da9c9b417d2b9a5c038c773f74f097a7a34e3[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed Apr 6 18:12:10 2022 +0300
+
+    fix user request
+
+[33mcommit 4ab0816c4ab5c4898a3d4df92a05fbef6a6da7b3[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed Apr 6 18:10:12 2022 +0300
+
+    fix user request
+
+[33mcommit 62134894630949b517ce83752f6fba5f3270fce5[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed Apr 6 18:08:03 2022 +0300
+
+    fix user request
+
+[33mcommit 86606469b58e10dd54b745d95d81420fe71e7969[m
+Author: Ilya Gorev <isip_i.a.gorev@mpt.ru>
+Date:   Wed Apr 6 17:49:01 2022 +0300
+
+    add changes for controller and seeder
+
+[33mcommit fa3cfaeb3582c72a0e6422734186c329efa8ae13[m
+Merge: d3cd5eb b5e10ee
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Wed Apr 6 13:20:17 2022 +0300
+
+    fix messages tg
+
+[33mcommit d3cd5ebc9d0bc5fd6d8d19a9538627d2a0455e18[m
+Author: Кабанов Николай <isip_n.a.kabanov@mpt.ru>
+Date:   Wed Apr 6 13:17:39 2022 +0300
+
+    fix messages tg
